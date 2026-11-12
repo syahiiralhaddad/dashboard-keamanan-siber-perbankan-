@@ -305,6 +305,81 @@ abbr.term{border-bottom:1px dotted var(--red);text-decoration:none;cursor:help;c
 .tlpt td:first-child{white-space:nowrap}
 .tlpchip{display:inline-block;font-weight:700;font-size:11.5px;padding:3px 9px;border-radius:8px;color:#fff}
 @media (prefers-reduced-motion:reduce){.mxc,.tsq:before{animation:none}}
+/* Incident management: empat pertanyaan */
+.qtabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0 22px}
+.qtabs button{display:flex;gap:10px;align-items:center;text-align:left;border:0;background:var(--bg);border-radius:18px;padding:14px;
+  font:inherit;font-size:14px;font-weight:600;color:var(--dark);cursor:pointer;transition:all .25s;line-height:1.3}
+.qtabs button i{font-style:normal;flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--red);font-weight:700}
+.qtabs button.on{background:var(--red);color:#fff}
+@media (max-width:760px){.qtabs{grid-template-columns:1fr 1fr}}
+.qlead{background:var(--soft);border-radius:18px;padding:16px 18px;font-size:15px;line-height:1.55;color:var(--dark)}
+.qlead b{display:block;color:var(--red);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:860px){.qgrid{grid-template-columns:1fr}}
+.qcard{background:var(--bg);border-radius:20px;padding:18px;animation:viewIn .6s var(--ease) both}
+.qcard.hot{background:var(--soft)}
+.qic{font-size:24px;margin-bottom:6px}
+.qcard h4{font-family:var(--font-display);font-size:16px;font-weight:600;margin-bottom:5px;letter-spacing:-.01em}
+.qcard p{font-size:13.5px;color:#424245;line-height:1.5}
+.qsrc{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;color:var(--red);background:#fff;border-radius:980px;padding:3px 9px}
+.cyc{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap}
+.cycs{flex:1;min-width:150px;background:#fff;border-radius:16px;padding:14px;box-shadow:inset 0 0 0 1px var(--line);
+  animation:axGlow 6s infinite;animation-delay:calc(var(--i)*1.5s)}
+.cycs i{font-style:normal;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:700;margin-bottom:8px}
+.cycs b{display:block;font-size:14px;margin-bottom:3px}.cycs span{font-size:12.5px;color:var(--gray);line-height:1.4}
+.cyca{align-self:center;color:var(--red);font-weight:700}
+.cycl{margin-top:8px;background:var(--red);color:#fff;border-radius:12px;padding:9px 14px;font-size:13px;font-weight:600;text-align:center}
+.stack{display:flex;flex-direction:column;gap:8px}
+.stk{display:flex;align-items:center;gap:14px;justify-content:space-between;background:var(--bg);border-radius:16px;padding:13px 16px;
+  margin-left:calc(var(--i)*14px);animation:viewIn .5s var(--ease) both;animation-delay:calc(var(--i)*.08s)}
+.stk b{font-size:14px}.stk p{font-size:13px;color:#424245;margin-top:2px;line-height:1.45}
+.stk>span{flex:none;font-size:11px;font-weight:700;padding:4px 10px;border-radius:980px;background:#fff;color:var(--gray)}
+.stk.bind>span{background:var(--red);color:#fff}
+@media (max-width:760px){.stk{margin-left:0}}
+.tier{display:flex;flex-direction:column;align-items:center;gap:4px;max-width:520px;margin:0 auto}
+.tr{width:100%;background:var(--bg);border-radius:16px;padding:12px 16px;text-align:center;animation:viewIn .5s var(--ease) both;animation-delay:calc(var(--i)*.12s)}
+.tr.hot{background:var(--red);color:#fff}.tr b{display:block;font-size:12px;letter-spacing:.05em;text-transform:uppercase;opacity:.8}
+.tr span{display:block;font-size:16px;font-weight:700;margin:2px 0}.tr p{font-size:12.5px;opacity:.85}
+.tra{font-size:11px;font-weight:700;color:var(--red);letter-spacing:.04em}
+.glegend{display:flex;gap:14px;margin-bottom:10px;font-size:12px;color:var(--gray)}
+.glegend span:before,.gp .dot{content:"";display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.glegend .y:before,.gp.y .dot{background:#1d1d1f}.glegend .s:before,.gp.s .dot{background:#f3a9ab}.glegend .n:before,.gp.n .dot{background:var(--red)}
+.gaps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:860px){.gaps{grid-template-columns:1fr}}
+.gp{display:flex;gap:4px;align-items:flex-start;background:var(--bg);border-radius:16px;padding:13px 14px;animation:viewIn .5s var(--ease) both;animation-delay:calc(var(--i)*.05s)}
+.gp .dot{flex:none;margin-top:4px}.gp b{font-size:13.5px}.gp p{font-size:12.5px;color:#424245;line-height:1.45;margin-top:2px}
+.gp.n{background:var(--soft);box-shadow:inset 0 0 0 1.5px var(--red)}
+.clk{display:flex;flex-direction:column;gap:12px}
+.clkrow{display:flex;gap:12px;align-items:stretch;background:var(--bg);border-radius:18px;padding:12px}
+.clkl{flex:none;width:120px;font-weight:700;font-size:13px;align-self:center}
+.clkt{flex:1;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.clkt em{font-style:normal;color:var(--red);font-weight:700}
+.ck{border-radius:12px;padding:9px 12px;min-width:120px;animation:viewIn .5s var(--ease) both;animation-delay:calc(var(--i)*.1s)}
+.ck b{display:block;font-size:14px}.ck span{font-size:12px;line-height:1.35}
+.ck.many{background:#fff;box-shadow:inset 0 0 0 1.5px var(--red)}.ck.many b{color:var(--red)}
+.ck.one{background:var(--dark);color:#fff}
+.clkn{font-size:12px;font-weight:600;color:var(--gray);margin-left:4px}
+@media (max-width:760px){.clkrow{flex-direction:column}.clkl{width:auto}}
+.eq{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin:16px 0 4px}
+.eq em{font-style:normal;align-self:center;font-size:24px;font-weight:700;color:var(--red)}
+.eqb{flex:1;min-width:180px;background:var(--bg);border-radius:18px;padding:16px}
+.eqb small{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray)}
+.eqb b{display:block;font-size:17px;margin:3px 0}.eqb span{font-size:13px;color:#424245}
+.eqb.res{background:var(--red);color:#fff}.eqb.res small,.eqb.res span{color:#fff;opacity:.9}
+.adg{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (max-width:860px){.adg{grid-template-columns:1fr}}
+.adc{background:var(--bg);border-radius:20px;padding:18px}
+.adc h4{font-family:var(--font-display);font-size:17px;font-weight:600;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+.adi{background:#fff;border-radius:14px;padding:12px 14px;margin-top:8px}
+.adi b{font-size:14px}.adi p{font-size:13px;color:#424245;line-height:1.45;margin-top:2px}
+.adi .qsrc{background:var(--soft)}
+details.more{margin-top:22px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+details.more>summary{cursor:pointer;list-style:none;padding:14px 18px;font-weight:600;font-size:14px;color:var(--red);display:flex;align-items:center;gap:8px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary:before{content:"+";display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--soft);font-weight:700}
+details.more[open]>summary:before{content:"−"}
+.morebd{padding:0 18px 18px}
+@media (prefers-reduced-motion:reduce){.cycs{animation:none}}
 @keyframes viewIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.35)}}
 
@@ -633,19 +708,17 @@ nav.top.two .nav-links>:first-child{margin-left:0}
 <!-- INCIDENT MANAGEMENT -->
 <section class="view" id="v-im">
   <div class="sec-kicker">Bagian 3 · Progres kajian</div>
-  <h2 class="title">Incident management: referensi Indonesia dan global</h2>
-  <p class="lead">Delapan belas dokumen dibandingkan untuk menjawab tiga pertanyaan: apa isi tiap referensi, apa perbedaan antara referensi Indonesia dan global, serta bagian dokumen Indonesia yang perlu diadopsi ke dalam playbook sektor jasa keuangan. Hasilnya digunakan untuk menyusun kerangka di tab Playbook.</p>
-  <div class="filters" id="imTab">
-    <button data-t="peta" class="on">Peta referensi</button>
-    <button data-t="penting">Hal penting</button>
-    <button data-t="banding">Indonesia vs global</button>
-    <button data-t="jam">Jam pelaporan</button>
-    <button data-t="ambil">Diambil dari Indonesia</button>
-    <button data-t="isi">Diisi dari global</button>
-    <button data-t="masukan">Masukan dan pemeriksaan ulang</button>
+  <h2 class="title">Incident management: belajar dari luar, diterapkan di Indonesia</h2>
+  <p class="lead">Bagian ini membandingkan cara negara dan lembaga lain menangani insiden siber dengan aturan yang sudah ada di Indonesia, lalu menentukan apa yang bisa diterapkan di sini. Pembahasannya disusun dalam empat pertanyaan. Hasilnya menjadi dasar kerangka di tab Playbook.</p>
+  <div class="qtabs" id="imTab">
+    <button data-t="q1" class="on"><i>1</i><span>Bagaimana praktik di luar negeri?</span></button>
+    <button data-t="q2"><i>2</i><span>Apa yang sudah dimiliki Indonesia?</span></button>
+    <button data-t="q3"><i>3</i><span>Di mana celahnya?</span></button>
+    <button data-t="q4"><i>4</i><span>Apa yang bisa diterapkan di Indonesia?</span></button>
   </div>
 
-  <div class="impane" id="im-peta">
+  <div class="impane" id="im-q1"><div id="q1Sum"></div>
+    <details class="more"><summary>Lihat rincian: daftar 18 dokumen dan perbandingan siklus insiden</summary><div class="morebd">
     <h3 class="sub" style="margin-top:6px">Catatan sebelum membaca</h3>
     <div class="grid g3" id="imNotes"></div>
     <h3 class="sub">Delapan belas dokumen yang dibandingkan</h3>
@@ -654,9 +727,7 @@ nav.top.two .nav-links>:first-child{margin-left:0}
     <div id="imDocDetail"></div>
     <h3 class="sub">Ringkasan dalam satu tabel</h3>
     <div class="tablewrap" style="max-height:none"><table id="imDocTable"></table></div>
-  </div>
-
-  <div class="impane" id="im-penting" hidden>
+  <h3 class="sub">Hal penting dari tiap kelompok dokumen</h3>
     <h3 class="sub" style="margin-top:6px">Universal: berlaku untuk insiden jenis apa pun</h3>
     <div class="grid g3" id="imUni"></div>
     <h3 class="sub">Keamanan siber: siklus hidup insiden menurut tiap dokumen</h3>
@@ -666,9 +737,19 @@ nav.top.two .nav-links>:first-child{margin-left:0}
     <div class="grid g2" id="imTech"></div>
     <h3 class="sub">Sektor jasa keuangan</h3>
     <div class="grid g3" id="imFin"></div>
+  </div></details>
   </div>
 
-  <div class="impane" id="im-banding" hidden>
+  <div class="impane" id="im-q2" hidden><div id="q2Sum"></div>
+    <details class="more"><summary>Lihat rincian: 27 elemen dari dokumen Indonesia</summary><div class="morebd">
+    <p class="lead">27 elemen yang menjadi dasar hukum playbook. Elemen yang bersifat mengikat dikutip sesuai teks aslinya.</p>
+    <input class="search" id="imTakeSearch" placeholder="Cari elemen atau pasal…">
+    <div class="tablewrap"><table id="imTake"></table></div>
+  </div></details>
+  </div>
+
+  <div class="impane" id="im-q3" hidden><div id="q3Sum"></div>
+    <details class="more"><summary>Lihat rincian: perbandingan per aspek</summary><div class="morebd">
     <p class="lead" style="margin-bottom:14px">Klik satu aspek untuk melihat posisi Indonesia, posisi global, dan celahnya.</p>
     <div class="filters" id="imAspek"></div>
     <div id="imAspekDetail"></div>
@@ -685,9 +766,8 @@ nav.top.two .nav-links>:first-child{margin-left:0}
     <div id="imBagi"></div>
     <h3 class="sub">Komunikasi krisis</h3>
     <div id="imKom"></div>
-  </div>
-
-  <div class="impane" id="im-jam" hidden>
+  </div></details>
+    <details class="more"><summary>Lihat rincian: jam pelaporan satu insiden</summary><div class="morebd">
     <p class="lead">Contoh: ransomware dengan eksfiltrasi data nasabah di bank yang sistemnya ditetapkan sebagai Infrastruktur Informasi Vital (IIV). Satu insiden memicu lima tenggat dari empat sumber berbeda, ditambah jalur ke BI yang tenggatnya perlu dicek di PADG KKS.</p>
     <div class="tline" id="imClockLine"></div>
     <h3 class="sub">Rincian tiap kewajiban</h3>
@@ -695,24 +775,20 @@ nav.top.two .nav-links>:first-child{margin-left:0}
     <h3 class="sub">Masalah yang muncul</h3>
     <div id="imClockIssue"></div>
     <div class="card" style="margin-top:12px"><h4>Pembanding dari Uni Eropa</h4><p id="imDora"></p></div>
+  </div></details>
   </div>
 
-  <div class="impane" id="im-ambil" hidden>
-    <p class="lead">27 elemen yang menjadi dasar hukum playbook. Elemen yang bersifat mengikat dikutip sesuai teks aslinya.</p>
-    <input class="search" id="imTakeSearch" placeholder="Cari elemen, pasal, atau bagian playbook…">
-    <div class="tablewrap"><table id="imTake"></table></div>
-  </div>
-
-  <div class="impane" id="im-isi" hidden>
+  <div class="impane" id="im-q4" hidden><div id="q4Sum"></div>
+    <details class="more"><summary>Lihat rincian: 15 celah dan rujukan globalnya</summary><div class="morebd">
     <p class="lead">Lima belas celah dalam dokumen Indonesia, rujukan global yang dapat menutupnya, serta bentuk adaptasinya dalam playbook.</p>
     <div id="imGlobal"></div>
-  </div>
-
-  <div class="impane" id="im-masukan" hidden>
+  </div></details>
+    <details class="more"><summary>Lihat rincian: masukan tambahan dan hal yang perlu diperiksa ulang</summary><div class="morebd">
     <h3 class="sub" style="margin-top:6px">Masukan tambahan</h3>
     <div id="imMasukan"></div>
     <h3 class="sub">Keterbatasan dan hal yang perlu diperiksa ulang</h3>
     <div class="grid g2" id="imCek"></div>
+  </div></details>
   </div>
 
   <div class="take"><b>Key Takeaways</b><span id="imTake2"></span></div>
@@ -2153,6 +2229,10 @@ IM.CEK=[
 
 /* ---------- takeaway & sumber per tab ---------- */
 IM.TAB={
+ q1:["Tahapan penanganan insiden di luar negeri pada dasarnya sama. Yang membuat mereka lebih siap adalah ukuran yang terukur, satu jalur lapor, komando yang jelas, dan dokumen siap pakai.","Sumber: NIST SP 800-61r3; CISA 2021; ASD 2024; NCSC; CREST 2025; FSB 2020; NIMS 2017; DORA RTS 2024/1772; CDR 2025/301"],
+ q2:["Indonesia sudah memiliki dasar hukum yang cukup lengkap. Yang belum ada adalah panduan operasional resmi untuk menjalankannya.","Sumber: UU 27/2022; Perpres 82/2022; Perban BSSN 1/2024; POJK 11/2022; SEOJK 29/2022; Panduan Resiliensi Digital 2024; IPCP 2024"],
+ q3:["Celah terbesar ada di cara menjalankan aturan: ukuran keparahan, jalur lapor yang bercabang, dan pembagian wewenang saat insiden.","Sumber: perbandingan dokumen Indonesia dengan DORA, ASD, NCSC, NIMS, FSB, CISA, dan CREST"],
+ q4:["Dasar hukum tetap dari Indonesia, cara kerja diambil dari praktik global dan disesuaikan dengan kapasitas CSIRT OJK.","Sumber: DORA RTS 2024/1772; ASD 2024; NIST SP 800-61r3; NCSC; CREST 2025; NIMS 2017; CISA 2021; FSB 2020; IPCP 2024"],
  peta:["Dari delapan belas dokumen, hanya IPCP yang sudah berbentuk alur kerja CSIRT sektor. Dokumen Indonesia lainnya unggul dalam dasar hukum, sedangkan dokumen global unggul dalam bentuk siap pakai.","Sumber: 18 dokumen referensi yang dibandingkan di halaman ini"],
  penting:["Siklus hidup insiden di semua dokumen pada dasarnya sama. Yang membedakan dokumen sektor keuangan adalah peran koordinator sektor, risiko menular, dan kewajiban ke regulator.","Sumber: NIMS 2017; BCBS 2021; NIST SP 800-61r3; CISA 2021; ASD 2024; NCSC; CREST 2025; FSB 2020; Perban BSSN 1/2024; Panduan Resiliensi Digital OJK 2024; IPCP 2024"],
  banding:["Indonesia sudah memiliki dasar hukum untuk hampir semua aspek. Yang belum ada adalah skala keparahan bersama, tabel kewenangan keputusan, komando bersama antarotoritas, dan jaminan untuk laporan sukarela.","Sumber: Perpres 82/2022; Perban BSSN 1/2024; POJK 11/2022; SEOJK 29/2022; Panduan Resiliensi Digital 2024; IPCP 2024; DORA RTS 2024/1772; ASD 2024; NCSC; NIMS 2017; FSB 2020; CISA 2021; CREST 2025"],
@@ -2228,10 +2308,10 @@ put('#imDora',esc(IM.DORA));
 
 function renderTake(q=''){
   const ql=q.toLowerCase();
-  const rows=IM.TAKE.map((r,i)=>[i+1,...r]).filter(r=>!q||r.join(' ').toLowerCase().includes(ql));
-  put('#imTake',`<thead><tr><th>No</th><th>Elemen</th><th>Sumber</th><th>Isi yang diambil</th><th>Masuk ke bagian playbook</th></tr></thead><tbody>${
-    rows.length?rows.map(r=>`<tr><td>${r[0]}</td><td><b>${esc(r[1])}</b></td><td>${esc(r[2])}</td><td>${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`).join('')
-    :'<tr><td colspan="5">Tidak ada elemen yang cocok.</td></tr>'}</tbody>`);
+  const rows=IM.TAKE.map((r,i)=>[i+1,...r.slice(0,3)]).filter(r=>!q||r.join(' ').toLowerCase().includes(ql));
+  put('#imTake',`<thead><tr><th>No</th><th>Elemen</th><th>Sumber</th><th>Isi yang diambil</th></tr></thead><tbody>${
+    rows.length?rows.map(r=>`<tr><td>${r[0]}</td><td><b>${esc(r[1])}</b></td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join('')
+    :'<tr><td colspan="4">Tidak ada elemen yang cocok.</td></tr>'}</tbody>`);
 }
 $('#imTakeSearch').oninput=e=>renderTake(e.target.value);
 renderTake();
@@ -2243,13 +2323,105 @@ put('#imGlobal',IM.GLOBAL.map(([g,r,a])=>`<div class="imgap"><div class="imgap-c
 put('#imMasukan',IM.MASUKAN.map(([t,d],i)=>`<div class="step"><div class="num">${i+1}</div><div><b style="font-size:.88rem;color:var(--red)">${esc(t)}</b><p style="margin-top:3px">${esc(d)}</p></div></div>`).join(''));
 put('#imCek',IM.CEK.map(([t,d])=>`<div class="card" style="border-color:rgba(219,38,42,.4)"><h4>${esc(t)}</h4><p>${esc(d)}</p></div>`).join(''));
 
+/* ====== RINGKASAN EMPAT PERTANYAAN ====== */
+const qcard=(t,d,src,hot)=>`<div class="qcard${hot?' hot':''}"><h4>${t}</h4><p>${d}</p>${src?`<span class="qsrc">${src}</span>`:''}</div>`;
+put('#q1Sum',`
+ <div class="qlead"><b>Jawaban singkat</b>Di luar negeri, tahapan penanganan insiden pada dasarnya sama di semua dokumen. Yang membuat mereka lebih siap adalah aturan main yang terukur, satu jalur pelaporan, pembagian komando yang jelas, dan dokumen yang langsung bisa dipakai saat panik.</div>
+ <h3 class="sub">Siklus penanganan insiden yang dipakai hampir semua dokumen</h3>
+ <div class="cyc">
+  ${[["Persiapan","Tim, rencana, alat, dan latihan disiapkan sebelum insiden"],["Deteksi dan analisis","Insiden dikenali, dinilai tingkat keparahannya, lalu dilaporkan"],["Penahanan dan pemulihan","Serangan dihentikan, ancaman dibersihkan, layanan dipulihkan"],["Pascainsiden","Penyebab dianalisis dan pelajarannya dibagikan"]]
+   .map(([t,d],i)=>`<div class="cycs" style="--i:${i}"><i>${i+1}</i><b>${t}</b><span>${d}</span></div>`).join('<div class="cyca">→</div>')}
+ </div>
+ <div class="cycl">Koordinasi dan komunikasi berjalan sepanjang insiden, bukan hanya di satu tahap</div>
+ <p class="src">Dirangkum dari NIST SP 800-61r3, CISA, ASD, NCSC, CREST, dan FSB. Perbedaan antardokumen hanya pada penamaan tahap dan apakah koordinasi ditulis sebagai tahap tersendiri.</p>
+ <h3 class="sub">Enam praktik yang membedakan</h3>
+ <div class="qgrid">
+  ${qcard("Ukuran keparahan pakai angka","Insiden disebut berat jika melewati ambang tertentu, misalnya persentase nasabah terdampak, lama gangguan, atau nilai kerugian. Semua lembaga menilai dengan ukuran yang sama.","DORA, ASD")}
+  ${qcard("Satu jalur lapor bertahap","Bank melapor ke satu otoritas dalam tiga tahap: awal dalam 4 jam, lanjutan dalam 72 jam, dan akhir dalam 1 bulan.","DORA (Uni Eropa)")}
+  ${qcard("Komando bersama","Saat beberapa lembaga sama-sama berwenang, masing-masing tetap memegang kewenangannya, tetapi menyepakati satu tujuan dan satu rencana aksi.","NIMS (Amerika Serikat)")}
+  ${qcard("Daftar siapa memutuskan apa","Keputusan besar, seperti mematikan layanan atau mengumumkan ke publik, sudah ditentukan pemegang wewenang dan penggantinya sebelum insiden.","NIST, NCSC, ASD, CREST")}
+  ${qcard("Laporan sukarela dilindungi","Informasi yang dibagikan secara sukarela tidak digunakan untuk menjatuhkan sanksi, sehingga organisasi berani terbuka.","ASD (Australia)")}
+  ${qcard("Siap pakai dan rutin dilatih","Tersedia playbook, templat, dan kartu langkah jam pertama, serta latihan bersama tingkat sektor.","CISA, CREST, FSB")}
+ </div>`);
+
+const STK=[["UU 27/2022 tentang Pelindungan Data Pribadi","Mengikat","Kebocoran data pribadi diberitahukan dalam 3×24 jam kepada pemilik data dan Lembaga PDP."],
+ ["Perpres 82/2022 tentang Pelindungan Infrastruktur Informasi Vital","Mengikat","Membentuk tim tanggap insiden tiga tingkat. Insiden pada sistem vital dilaporkan dalam 1×24 jam."],
+ ["Perban BSSN 1/2024 tentang Pengelolaan Insiden Siber","Mengikat","Mengatur tata cara penanganan insiden, isi minimal rencana respons, penandaan TLP, dan simulasi minimal dua tahun sekali."],
+ ["POJK 11/2022 dan SEOJK 29/2022","Mengikat","Bank memberi notifikasi awal ke OJK dalam 24 jam dan laporan dalam 5 hari kerja, serta wajib memiliki rencana penanggulangan insiden."],
+ ["Panduan Resiliensi Digital OJK 2024","Panduan","Mengatur kelangsungan bisnis, manajemen krisis, dan matriks komunikasi insiden."],
+ ["Dokumen IPCP (OJK CSIRT, 2024)","Panduan internal","Alur kerja CSIRT sektor, kategori insiden C1–C5, berbagi intelijen ancaman, dan komunikasi krisis."]];
+put('#q2Sum',`
+ <div class="qlead"><b>Jawaban singkat</b>Indonesia sudah punya dasar hukum yang cukup lengkap: siapa yang menangani, ke mana melapor, berapa lama tenggatnya, dan apa isi minimal rencana respons. Yang belum ada adalah panduan operasional resmi untuk menjalankannya.</div>
+ <h3 class="sub">Aturan yang sudah ada, dari yang paling tinggi</h3>
+ <div class="stack">${STK.map(([t,k,d],i)=>`<div class="stk ${k==='Mengikat'?'bind':''}" style="--i:${i}"><div><b>${t}</b><p>${d}</p></div><span>${k}</span></div>`).join('')}</div>
+ <h3 class="sub">Siapa menangani apa</h3>
+ <div class="tier">
+  <div class="tr" style="--i:0"><b>Tingkat nasional</b><span>BSSN</span><p>Mengoordinasikan insiden lintas sektor</p></div>
+  <div class="tra">↑ melapor ↑</div>
+  <div class="tr hot" style="--i:1"><b>Tingkat sektor</b><span>OJK bersama BI (TTIS-SK)</span><p>Mengoordinasikan insiden di sektor keuangan</p></div>
+  <div class="tra">↑ melapor ↑</div>
+  <div class="tr" style="--i:2"><b>Tingkat organisasi</b><span>Bank</span><p>Menangani insiden di sistemnya sendiri</p></div>
+ </div>
+ <h3 class="sub">Kekuatan yang sudah dimiliki</h3>
+ <div class="qgrid">
+  ${qcard("Dasar hukum kuat","Kewajiban lapor, tenggat, dan struktur tim sudah diatur dalam aturan yang mengikat.")}
+  ${qcard("TLP sudah wajib","Penandaan TLP untuk penyebaran informasi sudah diwajibkan Perban BSSN 1/2024.")}
+  ${qcard("Komunikasi krisis paling lengkap","Panduan Resiliensi dan IPCP sudah memuat matriks komunikasi dan prinsip penyusunan pesan.")}
+ </div>`);
+
+const ST={y:["Sudah ada","y"],s:["Sebagian","s"],n:["Belum ada","n"]};
+const GAPS=[["Bentuk panduan siap pakai","n","Belum ada playbook insiden sektor keuangan yang resmi"],
+ ["Ukuran keparahan insiden","s","Kategori C1–C5 IPCP masih contoh dan belum memakai angka"],
+ ["Jam pelaporan","s","Sudah diatur, tetapi tersebar di beberapa aturan dengan titik mulai yang berbeda"],
+ ["Kapan otoritas ikut memimpin","s","Kriteria hanya ada untuk sistem non-vital"],
+ ["Siapa memutuskan apa","s","Tim sudah ada, tetapi daftar keputusan dan pemegang wewenangnya belum"],
+ ["Koordinasi antarotoritas","s","Kerja sama OJK–BI sudah ada, tetapi pembagian peran saat insiden belum rinci"],
+ ["Berbagi informasi","s","TLP sudah wajib, tetapi belum ada jaminan laporan sukarela tidak dipakai untuk sanksi"],
+ ["Komunikasi krisis","y","Paling lengkap, tetapi juru bicara saat banyak bank terdampak belum jelas"],
+ ["Latihan","s","Kewajiban latihan ada, tetapi skenario dan siklus latihan sektor belum baku"],
+ ["Evaluasi pascainsiden","s","Sudah dianjurkan, tetapi format laporan evaluasi ke OJK belum ada"],
+ ["Insiden kecil yang berulang","n","Belum diatur, sehingga pola berulang di satu bank bisa lolos"],
+ ["Ancaman yang belum terjadi","n","Belum ada kriteria kapan ancaman perlu dilaporkan"]];
+put('#q3Sum',`
+ <div class="qlead"><b>Jawaban singkat</b>Celah terbesar Indonesia ada di cara menjalankan aturan, bukan di aturannya. Belum ada ukuran keparahan yang sama, jalur lapor masih bercabang, dan belum jelas siapa memutuskan apa saat insiden.</div>
+ <h3 class="sub">Kondisi tiap aspek</h3>
+ <div class="glegend">${Object.values(ST).map(([l,c])=>`<span class="${c}">${l}</span>`).join('')}</div>
+ <div class="gaps">${GAPS.map(([a,k,d],i)=>`<div class="gp ${k}" style="--i:${i}"><span class="dot"></span><div><b>${a}</b><p>${d}</p></div></div>`).join('')}</div>
+ <h3 class="sub">Contoh paling nyata: satu insiden, banyak tenggat</h3>
+ <p class="src" style="margin:-4px 0 12px">Kasus ransomware yang membocorkan data nasabah di bank dengan sistem vital.</p>
+ <div class="clk">
+  <div class="clkrow"><div class="clkl">Indonesia</div><div class="clkt">
+   ${[["24 jam","Notifikasi awal ke OJK"],["1×24 jam","Lapor ke TTIS-SK, tembusan BSSN"],["3×24 jam","Notifikasi ke pemilik data dan Lembaga PDP"],["5 hari kerja","Laporan insiden ke OJK"],["Perlu dicek","Notifikasi ke BI"]].map(([j,t],i)=>`<div class="ck many" style="--i:${i}"><b>${j}</b><span>${t}</span></div>`).join('')}
+  </div></div>
+  <div class="clkrow"><div class="clkl">Uni Eropa (DORA)</div><div class="clkt">
+   ${[["4 jam","Notifikasi awal"],["72 jam","Laporan lanjutan"],["1 bulan","Laporan akhir"]].map(([j,t],i)=>`<div class="ck one" style="--i:${i}"><b>${j}</b><span>${t}</span></div>`).join('<em>→</em>')}
+   <div class="clkn">Semuanya ke satu otoritas</div>
+  </div></div>
+ </div>
+ <p class="src">Di Indonesia, satu insiden bisa memicu lima kewajiban lapor ke empat pihak, dengan istilah titik mulai yang berbeda ("diketahui", "ditemukan", atau tidak disebut).</p>`);
+
+const ADOPT=[["Ukuran dan pelaporan","",[["Ukuran keparahan dengan angka","DORA, ASD","Kategori C1–C5 dilengkapi angka, misalnya persentase nasabah terdampak dan lama gangguan"],["Satu titik mulai dan satu peta pelaporan","DORA, ASD","Satu tabel: jenis insiden, pihak yang dilapori, tenggat, format, dan penanggung jawab"],["Pantau insiden kecil yang berulang","DORA","Pemeriksaan bulanan atas pola insiden dengan penyebab sama"]]],
+ ["Komando dan koordinasi","",[["Daftar siapa memutuskan apa","NIST, NCSC, ASD, CREST","Daftar keputusan besar, pemegang wewenang, dan penggantinya"],["Forum pimpinan lintas otoritas","NIMS, ASD","Forum pimpinan OJK, BI, dan BSSN yang aktif untuk insiden C1"],["Komando bersama","NIMS, CISA","Pembagian peran saat beberapa otoritas sama-sama berwenang"]]],
+ ["Berbagi dan komunikasi","",[["Perlindungan laporan sukarela","ASD","Jaminan bahwa laporan sukarela ke CSIRT sektor tidak dipakai untuk sanksi"],["Pernyataan publik siap pakai","FSB, CREST","Draf pernyataan awal untuk tiap skenario"],["Jadwal kabar terbaru","FSB, IPCP","Templat peringatan dan jadwal kabar tetap, misalnya tiap 6 jam untuk C1"]]],
+ ["Latihan dan bentuk playbook","",[["Latihan tingkat sektor","FSB","Latihan simulasi meja (tabletop) tahunan yang dipimpin OJK"],["Kartu langkah jam pertama","CISA, CREST, NCSC","Kartu langkah per skenario dan kartu peran tiap orang"],["Format evaluasi pascainsiden","ASD, CISA","Templat evaluasi yang dikirim bank ke OJK"]]]];
+put('#q4Sum',`
+ <div class="qlead"><b>Jawaban singkat</b>Dasar hukumnya tetap dari Indonesia, sedangkan cara kerjanya diambil dari praktik global lalu disesuaikan.</div>
+ <div class="eq">
+  <div class="eqb"><small>Dari Indonesia</small><b>Dasar hukum</b><span>Kewajiban, tenggat, struktur tim, TLP</span></div><em>+</em>
+  <div class="eqb"><small>Dari global</small><b>Cara kerja</b><span>Ukuran, komando, templat, latihan</span></div><em>=</em>
+  <div class="eqb res"><small>Hasil</small><b>Playbook sektor keuangan</b><span>Langsung bisa dipakai saat insiden</span></div>
+ </div>
+ <h3 class="sub">Yang bisa diterapkan, dikelompokkan per tema</h3>
+ <div class="adg">${ADOPT.map(([t,ic,it])=>`<div class="adc"><h4>${t}</h4>${it.map(([a,f,b])=>`<div class="adi"><b>${a}</b><p>${b}</p><span class="qsrc">Contoh dari ${f}</span></div>`).join('')}</div>`).join('')}</div>
+ <div class="qlead" style="margin-top:16px"><b>Catatan penyesuaian</b>Angka dari dokumen global, seperti ambang DORA atau tenggat IPCP, tidak langsung disalin. Angkanya perlu disesuaikan dengan kapasitas CSIRT OJK dan tidak boleh menggantikan kewajiban hukum yang sudah ada.</div>`);
+
 function imTab(t){
   $$('#imTab button').forEach(x=>x.classList.toggle('on',x.dataset.t===t));
   $$('#v-im .impane').forEach(p=>p.hidden=p.id!=='im-'+t);
   put('#imTake2',esc(IM.TAB[t][0])); put('#imSrc',esc(IM.TAB[t][1]));
 }
 $$('#imTab button').forEach(b=>b.onclick=()=>imTab(b.dataset.t));
-imTab('peta');
+imTab('q1');
 })();
 
 
