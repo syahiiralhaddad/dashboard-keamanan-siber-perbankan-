@@ -236,14 +236,16 @@ abbr.term{border-bottom:1px dotted var(--red);text-decoration:none;cursor:help;c
 .axstrip span.two{border-radius:16px;line-height:1.5}
 .axstrip em{font-style:normal;color:var(--red);font-weight:700}
 .axbox{background:var(--bg);border-radius:24px;padding:18px}
-.axbox>input{position:absolute;opacity:0;pointer-events:none}
-.axbox>label{display:inline-flex;align-items:center;gap:8px;margin:0 8px 8px 0;padding:9px 15px;border-radius:980px;background:#fff;
-  font-size:13px;font-weight:600;color:var(--dark);cursor:pointer;box-shadow:inset 0 0 0 1px var(--line);transition:all .25s}
-.axbox>label i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--soft2);color:var(--red);font-size:12px}
-.axpane{display:none;margin-top:6px}
-#axtA:checked~label[for=axtA],#axtB:checked~label[for=axtB],#axtC:checked~label[for=axtC],#axtD:checked~label[for=axtD]{background:var(--red);color:#fff;box-shadow:none}
-#axtA:checked~label[for=axtA] i,#axtB:checked~label[for=axtB] i,#axtC:checked~label[for=axtC] i,#axtD:checked~label[for=axtD] i{background:#fff}
-#axtA:checked~.axpane[data-a=A],#axtB:checked~.axpane[data-a=B],#axtC:checked~.axpane[data-a=C],#axtD:checked~.axpane[data-a=D]{display:block;animation:viewIn .5s var(--ease)}
+.axtab{display:inline-flex;align-items:center;gap:8px;margin:0 8px 8px 0;padding:9px 15px;border-radius:980px;background:#fff;border:0;
+  font:inherit;font-size:13px;font-weight:600;color:var(--dark);cursor:pointer;box-shadow:inset 0 0 0 1px var(--line);transition:all .25s}
+.axtab i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--soft2);color:var(--red);font-size:12px}
+.axtab.on{background:var(--red);color:#fff;box-shadow:none}.axtab.on i{background:#fff}
+.axpane{display:none;margin-top:6px}.axpane.on{display:block;animation:viewIn .5s var(--ease)}
+.shgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
+.shbox{background:var(--dark);color:#fff;border-radius:16px;padding:14px 15px;font-size:13px;font-weight:600;line-height:1.4;
+  animation:axGlow calc(var(--n)*1s) infinite;animation-delay:calc(var(--i)*1s)}
+.shbox span{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--red);font-size:12px;margin-bottom:8px}
+@media (max-width:760px){.shgrid{grid-template-columns:repeat(2,1fr)}}
 .axleg{display:flex;flex-wrap:wrap;gap:14px;margin:6px 0 12px;font-size:12px;color:var(--gray)}
 .axleg span:before{content:"";display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-2px}
 .axleg .m:before{background:var(--red)}.axleg .s:before{background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
@@ -273,7 +275,7 @@ abbr.term{border-bottom:1px dotted var(--red);text-decoration:none;cursor:help;c
 .axpar>b{display:block;color:var(--red);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;margin:-18px 0 4px}
 .axpar{padding-top:18px}
 @keyframes axGlow{0%,10%{box-shadow:0 0 0 3px rgba(219,38,42,.28),0 10px 24px rgba(219,38,42,.22);transform:translateY(-2px)}18%,100%{box-shadow:none;transform:none}}
-@media (prefers-reduced-motion:reduce){.axh{animation:none}}
+@media (prefers-reduced-motion:reduce){.axh,.shbox{animation:none}}
 @keyframes viewIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.35)}}
 
@@ -1197,21 +1199,55 @@ const ANNEX=[
   {h:"Perbarui insiden",i:[["Identifikasi kebutuhan, undangan, atau partisipasi pemangku kepentingan yang lebih luas"],["Bekerja sama dengan vendor untuk memberi panduan penanganan bila relevan"],["Tinjau insiden sebelumnya, TTP, dan wiki, lalu sebarkan pelajaran yang ditemukan"]]},
   {h:"Perbarui insiden bersama organisasi",ty:"o",i:[]}],
   par:{h:"Komunikasi media",i:[["Tinjau rancangan komunikasi media dan pastikan akurat"],["Tim koordinasi insiden memastikan komunikasi media benar dan relevan"]]}}];
-function annexFlows(){
+function axSel(btn){const box=btn.closest('.axbox');
+  box.querySelectorAll('.axtab').forEach(b=>b.classList.toggle('on',b===btn));
+  box.querySelectorAll('.axpane').forEach(p=>p.classList.toggle('on',p.dataset.a===btn.dataset.a));}
+function annexFlows(list,doc,strip){
   const box=([t,ty,lab])=>`${lab?`<em class="axlab">${lab}</em>`:''}<div class="axb ${ty||''}">${t}</div>`;
   const col=(c,k,n)=>`<div class="axcol" style="--i:${k};--n:${n}"><div class="axh ${c.ty||'m'}">${c.ty==='q'?'<em>Keputusan</em>':''}${c.h}</div>${c.i.map(x=>`<div class="axv">↓</div>`+box(x)).join('')}</div>`;
-  const tabs=ANNEX.map((a,i)=>`<input type="radio" name="axt" id="axt${a.id}" ${i?'':'checked'}><label for="axt${a.id}"><i>${a.id}</i>${a.t}</label>`).join('');
-  const panes=ANNEX.map(a=>{const n=a.cols.length;
-    return `<div class="axpane" data-a="${a.id}">
+  const tabs=list.map((a,i)=>`<button type="button" class="axtab${i?'':' on'}" data-a="${a.id}" onclick="axSel(this)"><i>${a.id}</i>${a.t}</button>`).join('');
+  const panes=list.map((a,i)=>{const n=a.cols.length;
+    return `<div class="axpane${i?'':' on'}" data-a="${a.id}">
     <div class="axin"><b>Masukan</b>${a.in.map(x=>`<span>${x}</span>`).join('')}</div>
     <div class="axscroll"><div class="axrow">${a.cols.map((c,k)=>(k?`<div class="axarr">${a.cols[k-1].go?`<em>${a.cols[k-1].go}</em>`:''}→</div>`:'')+col(c,k,n)).join('')}
     ${a.par?`<div class="axpar"><b>Berjalan paralel</b>${col(a.par,n,n+1)}</div>`:''}</div></div>
-    <p class="src" style="margin-top:10px">Disusun ulang dari bagan ${a.src} IPCP Incident Management Playbook. Geser ke samping untuk melihat seluruh alur.</p></div>`}).join('');
-  const leg=`<div class="axleg"><span class="m">Langkah utama</span><span class="s">Rincian langkah</span><span class="o">Kabar ke organisasi</span><span class="p">Persiapan</span><span class="x">Insiden ditutup</span></div>`;
-  return `<div class="axstrip"><span>A · Penerimaan</span><em>→</em><span>B · Analisis</span><em>→</em><span class="two">C · Koordinasi<br>D · Manajemen krisis</span></div>
-  <p class="src" style="margin:-4px 0 14px">Alur A dan B berjalan berurutan, sedangkan C dan D dapat berjalan bersamaan setelah analisis dimulai. Pilih alur untuk melihat bagannya.</p>
-  <div class="axbox">${tabs}${leg}${panes}</div>`;
+    <p class="src" style="margin-top:10px">Disusun ulang dari bagan ${a.src} ${doc}. Geser ke samping untuk melihat seluruh alur.</p></div>`}).join('');
+  const all=JSON.stringify(list);
+  const L=[["m","Langkah utama",1],["s","Rincian langkah",1],["o","Kabar ke organisasi",/"ty":"o"|,"o"\]/.test(all)],["p","Persiapan",/"ty":"p"/.test(all)],["x","Insiden ditutup",/,"x"/.test(all)]];
+  const leg=`<div class="axleg">${L.filter(x=>x[2]).map(x=>`<span class="${x[0]}">${x[1]}</span>`).join('')}</div>`;
+  return (strip||'')+`<div class="axbox"><div>${tabs}</div>${leg}${panes}</div>`;
 }
+const IM_STRIP=`<div class="axstrip"><span>A · Penerimaan</span><em>→</em><span>B · Analisis</span><em>→</em><span class="two">C · Koordinasi<br>D · Manajemen krisis</span></div>
+  <p class="src" style="margin:-4px 0 14px">Alur A dan B berjalan berurutan, sedangkan C dan D dapat berjalan bersamaan setelah analisis dimulai. Pilih alur untuk melihat bagannya.</p>`;
+const ANNEX_SA=[
+ {id:"A",t:"Pengumpulan CTI",src:"Annex A, hal. 23",in:["Pemangku kepentingan organisasi sektor","Ahli CSIRT","Regulator sektor atau pemerintah"],cols:[
+  {h:"Identifikasi kebutuhan pengumpulan CTI",i:[["Apa prioritas CTI bagi sektor, dan apa yang mendorongnya?"],["Software, sistem, atau cara kerja apa yang umum digunakan?"],["Pelaku, TTP, dan kampanye apa yang saat ini menargetkan sektor keuangan?"]]},
+  {h:"Tentukan sumber data CTI",i:[["Tentukan feed CTI open-source atau berbayar beserta frekuensi pengumpulannya"],["Tentukan sumber internal beserta frekuensi pengumpulannya"],["Tinjau feed dari sisi relevansi, volume, akurasi, cakupan wilayah, frekuensi pembaruan, dan keandalan"],["Tentukan tingkat kepercayaan sumber, lalu setujui, prioritaskan, dan klasifikasikan sumber tersebut"]]},
+  {h:"Kumpulkan data dari sumber CTI",i:[["Tentukan metode pengumpulan, yaitu otomatis, kueri API, atau manual"],["Tentukan sumber internal beserta frekuensi pengumpulannya"],["Tinjau feed dari sisi relevansi, volume, akurasi, cakupan wilayah, frekuensi pembaruan, dan keandalan"]]},
+  {h:"Olah konten CTI",i:[["Gabungkan dan normalisasi data ke skema umum bila formatnya belum sesuai"],["Beri tag atau kategori sesuai kebutuhan, klasifikasi, dan prioritas CSIRT"],["Tambahkan informasi lain, secara manual atau otomatis, untuk memperkaya konteks"]]},
+  {h:"Analisis konteks CTI",i:[["Tinjau pelaku, TTP, IoC, atau data lain yang diterima"],["Tambahkan konteks, analisis relevansinya bagi sektor, dan prioritaskan informasi yang spesifik"],["Tentukan tren terkait pelaku, TTP, kampanye, atau organisasi, software, dan sistem yang menjadi sasaran"]]},
+  {h:"Hasilkan data dan laporan CTI",i:[["Buat laporan, peringatan, dan IoC tambahan"],["Pastikan formatnya dapat diterima penerima, misalnya STIX, flat file, atau API"],["Beri tahu organisasi bahwa CTI baru tersedia, disertai ringkasan, tag, prioritas, dan klasifikasinya"]]}]},
+ {id:"B",t:"Penyebaran CTI",src:"Annex B, hal. 26",in:["Peringatan mentah yang mendesak","CTI yang sudah diolah"],cols:[
+  {h:"Tentukan penerima CTI",i:[["Tentukan pemangku kepentingan atau organisasi yang perlu menerima CTI berdasarkan tag, relevansi, dan prioritas"],["Bedakan format laporan untuk tiap tingkat pemangku kepentingan"],["Tentukan apakah organisasi memerlukan kabar lanjutan berdasarkan prioritas, tag, dan relevansi CTI"]]},
+  {h:"Siapkan penyebaran CTI",i:[["Pastikan CTI yang dapat dibaca mesin segera tersedia"],["Buat laporan siap tindak untuk pembaca manusia, dengan ringkasan yang dipisahkan dari rincian teknis"],["Kirim laporan ke pimpinan senior atau ahli untuk memvalidasi isi dan rekomendasi tindakannya"]]},
+  {h:"Tentukan jalur penyebaran",i:[["Kepada siapa CTI disebarkan, dan bagaimana caranya?"],["Tentukan relevansi, urgensi, dan prioritas CTI"],["Pasang peringatan atau pemicu otomatis berdasarkan klasifikasi, prioritas, dan tag untuk memberi tahu pemangku kepentingan"]]},
+  {h:"Sebarkan CTI",i:[["Pastikan CTI tersedia di feed, portal, atau dashboard yang disediakan, sesuai kontrol akses dan klasifikasinya"],["Percepat penyebaran CTI yang mendesak dan pastikan pihak terkait diberi tahu"],["Konfirmasi penerimaan atau akses terhadap CTI baru"]]},
+  {h:"Kegunaan CTI dan umpan balik",i:[["Pastikan organisasi menerima CTI dengan meninjau log audit"],["Minta umpan balik tentang kegunaan, ketepatan prioritas, dan konteks CTI bagi organisasi"],["Tentukan pemangku kepentingan atau organisasi lain yang seharusnya ikut menerima CTI"]]},
+  {h:"Perbaikan proses penyebaran",i:[["Evaluasi pelajaran tentang cara CTI digunakan, kegunaannya, dan relevansinya"],["Perbaiki proses berdasarkan umpan balik dan sesuaikan cara penyebaran bila perlu"],["Pertimbangkan laporan bulanan, triwulanan, atau tahunan berdasarkan CTI yang disebarkan"]]}]},
+ {id:"C",t:"Umpan balik CTI",src:"Annex C, hal. 28",in:["Pemangku kepentingan organisasi sektor","Ahli CSIRT","Regulator sektor atau pemerintah"],cols:[
+  {h:"Umpan balik CTI",i:[["Tentukan saluran umpan balik, misalnya email, portal, survei, atau pertemuan tatap muka dan virtual"],["Minta umpan balik tentang kegunaan, ketepatan prioritas, dan konteks CTI bagi organisasi"],["Tentukan pemangku kepentingan atau organisasi lain yang seharusnya ikut menerima CTI"]]},
+  {h:"Analisis umpan balik CTI",i:[["Pahami tema umum dalam umpan balik yang diterima"],["Identifikasi CTI yang paling berdampak dan CTI yang sama sekali tidak digunakan"],["Pahami kekosongan cakupan CTI atau jenis informasi yang diminta organisasi"],["Prioritaskan kekosongan yang ditemukan"]]},
+  {h:"Perbaikan proses CTI",i:[["Perbaiki proses berdasarkan umpan balik dan sesuaikan cara penyebaran bila perlu"],["Tinjau proses secara rutin dan lakukan perbaikan sebelum ada permintaan dari organisasi"],["Pertimbangkan laporan bulanan, triwulanan, atau tahunan berdasarkan CTI yang disebarkan"]]},
+  {h:"Penyelarasan proses CTI",i:[["Pastikan pegawai CSIRT menghasilkan CTI yang efektif dan relevan"],["Pastikan pegawai CSIRT menghasilkan CTI sesuai proses, prosedur, prioritas, dan relevansinya"],["Pertimbangkan laporan bulanan, triwulanan, atau tahunan berdasarkan CTI yang disebarkan"]]}],
+  par:{h:"Kegunaan CTI dan pelatihan",i:[["Pertimbangkan pelatihan tentang cara pemangku kepentingan memanfaatkan CTI secara efektif di organisasinya"],["Pertimbangkan laporan tematik atau kampanye kesadaran tentang pelaku dan TTP tertentu"]]}},
+ {id:"D",t:"Penyimpanan, akses, dan audit platform",src:"Annex D, hal. 30",in:["Log","CTI yang sudah diolah","Akses pengguna"],cols:[
+  {h:"Kebutuhan penyimpanan platform CTI",i:[["Berapa volume CTI yang akan disimpan, dan berapa lama harus disimpan?"],["Apa dampaknya terhadap kinerja dari sisi volume penyimpanan, akses pengguna, dan pemrosesan?"],["Bagaimana platform akan diperluas?"],["Apakah kapasitas backup cukup untuk kebutuhan penyimpanan dan masa simpan?"]]},
+  {h:"Kebutuhan kebijakan platform CTI",i:[["Bagaimana CTI harus disimpan, misalnya dikategorikan, dienkripsi, atau diklasifikasikan?"],["Kebijakan keamanan informasi internal CSIRT mana yang harus dipatuhi?"],["Apakah log akses CTI memenuhi ketentuan pencatatan dalam kebijakan CSIRT?"]]},
+  {h:"Penyediaan akses platform CTI",i:[["Tetapkan alur yang mengatur metode akses, kategorisasi data, dan klasifikasinya"],["Tetapkan proses pemberian akses berbasis peran (RBAC) sesuai cara CTI diakses"],["Pastikan pemberian akses melalui proses persetujuan yang dapat diaudit"]]},
+  {h:"Analisis log akses CTI",i:[["Jika CTI diakses secara otomatis atau melalui login, pastikan akses dan login tersebut diaudit"],["Audit log akses CTI paling sedikit seminggu sekali atau setiap ada tanda penyalahgunaan"],["Buat tiket insiden untuk setiap anomali yang ditemukan dan beri tahu ahli CSIRT"]]}]}];
+const SHARE10=["Tetapkan tujuan dan sasaran berbagi informasi","Identifikasi sumber CTI internal yang sudah ada","Tentukan cakupan kegiatan berbagi informasi","Tetapkan aturan berbagi informasi","Bergabung dan berpartisipasi dalam kegiatan berbagi informasi","Aktif memperkaya indikator","Gunakan alur kerja yang aman dan otomatis","Siapkan perjanjian berbagi informasi ancaman sejak awal","Lindungi keamanan dan privasi informasi sensitif","Sediakan dukungan berkelanjutan untuk kegiatan berbagi informasi"];
+const share10=()=>`<div class="shgrid">${SHARE10.map((t,i)=>`<div class="shbox" style="--i:${i};--n:10"><span>${i+1}</span>${t}</div>`).join('')}</div>
+ <p class="src">Disusun ulang dari Figure 6 (hal. 16), yang mengacu pada NIST SP 800-150. Urutan nomor mengikuti arah panah pada bagan aslinya.</p>`;
 
 const DIAG={
 
@@ -1333,7 +1369,7 @@ const DIAG={
         ["Alih pengetahuan","IPCP memilih pembangunan kesadaran serta pelatihan dan edukasi, dan menyatakannya di luar cakupan playbook ini."],
         ["Konsekuensinya bagi playbook","Tiga area yang tidak dibahas tetap perlu ditangani. Playbook perlu menyebutkan siapa penanggung jawabnya di jasa keuangan, agar tidak ada celah tanggung jawab saat insiden berlangsung."]],[0,1])+
  H("Empat alur kerja CSIRT sektor")+
- annexFlows(),
+ annexFlows(ANNEX,"IPCP Incident Management Playbook",IM_STRIP),
 
 "IPCP — Situational Awareness (CTI)":
  H("Tiga komponen kesadaran situasional")+
@@ -1361,7 +1397,12 @@ const DIAG={
  cards([["Taktik","Menjelaskan tujuan yang ingin dicapai penyerang pada satu tahap."],
         ["Teknik","Menjelaskan cara tujuan tersebut dicapai."],
         ["Prosedur","Menjelaskan secara rinci cara teknik tersebut dijalankan oleh pelaku tertentu."]])+
- `<p class="src">Dokumen menggunakan empat belas taktik MITRE ATT&amp;CK sebagai kerangka, dilengkapi grafik 20 teknik teratas beserta trennya, studi kasus Operation Sharpshooter dengan tiga belas sub-teknik, dan peta ATT&amp;CK Navigator.</p>`,
+ `<p class="src">Dokumen menggunakan empat belas taktik MITRE ATT&amp;CK sebagai kerangka, dilengkapi grafik 20 teknik teratas beserta trennya, studi kasus Operation Sharpshooter dengan tiga belas sub-teknik, dan peta ATT&amp;CK Navigator.</p>`+
+ H("Sepuluh sasaran berbagi CTI")+
+ share10()+
+ H("Empat alur kerja CTI")+
+ `<p class="src" style="margin:-4px 0 14px">Pilih alur untuk melihat bagannya.</p>`+
+ annexFlows(ANNEX_SA,"IPCP Situational Awareness (CTI) Playbook"),
 
 "IPCP — CTI Information Sharing Network":
  H("Dua fungsi utama jaringan")+
@@ -1509,7 +1550,7 @@ const DOCS=[
   isi:["Membedakan dua peran dalam penanganan insiden. Bank sebagai pemilik sistem menjalankan respons insiden, sedangkan CSIRT sektor menjalankan manajemen insiden yang memantau, mengoordinasikan, dan mendukung respons tersebut.","Mengelompokkan insiden ke dalam lima kategori, yaitu C1 sampai C5, berdasarkan dampaknya terhadap kerahasiaan, integritas, ketersediaan, dan keaslian data atau sistem.","Setiap kategori memiliki dua batas waktu, yaitu respons awal (30 menit untuk C1 hingga 12 jam untuk C5) dan laporan pendahuluan (2 jam untuk C1 hingga 72 jam untuk C5).","Kategori dapat berubah seiring bertambahnya informasi. C1 hanya dapat dipertahankan atau diturunkan, C5 hanya dapat dipertahankan atau dinaikkan, sedangkan C2 sampai C4 dapat bergerak ke dua arah.","Menguraikan empat alur kerja CSIRT sektor, yaitu penerimaan laporan, analisis insiden, koordinasi insiden, dan dukungan manajemen krisis.","Insiden C1 dan C2 mendapat dukungan manajemen krisis, dengan pimpinan senior CSIRT sebagai Crisis Manager."],
   menggunakan:"Pilar manajemen insiden pada playbook."},
  {k:"Bagian Utama",n:"IPCP — Situational Awareness (CTI)",p:"OJK CSIRT dan Indo-Pacific Cyber Programme",j:"Kesadaran Situasional dan Intelijen Ancaman Siber",
-  isi:["Terdiri atas tiga komponen, yaitu akuisisi data, analisis dan sintesis, serta komunikasi.","Membedakan empat jenis intelijen: strategis untuk pembaca non-teknis, teknis berbasis vendor atau versi software, operasional tentang ancaman spesifik ke sektor, dan taktis dari insiden yang sedang terjadi.","Memuat daftar indicator of compromise (IoC) yang dapat langsung digunakan bank.","Memetakan taktik, teknik, dan prosedur menggunakan empat belas taktik MITRE ATT&CK.","Dilengkapi studi kasus Operation Sharpshooter dan peta ATT&CK Navigator."],
+  isi:["Disusun untuk CSIRT sektor perbankan yang dikembangkan OJK dan Bank Indonesia, dengan fokus pada kesadaran situasional melalui intelijen ancaman siber (CTI).","Kesadaran situasional terdiri atas tiga komponen, yaitu akuisisi data, analisis dan sintesis, serta komunikasi.","Membedakan empat jenis intelijen, yaitu strategis, teknis, operasional, dan taktis, serta menjelaskan indicator of compromise dan pemetaan taktik, teknik, dan prosedur pelaku dengan MITRE ATT&CK.","Membahas cara membangun kemampuan CTI, mulai dari pemilihan platform, taksonomi bersama dengan standar STIX dan TAXII, hingga ragam sumber data CTI.","Menetapkan sepuluh sasaran berbagi CTI yang mengacu pada NIST SP 800-150, klasifikasi informasi dengan Traffic Light Protocol, serta pengamanan CTI saat disimpan maupun dikirim.","Menguraikan empat alur kerja CTI, yaitu pengumpulan, penyebaran, umpan balik, serta penyimpanan, akses, dan audit platform."],
   menggunakan:"Pilar kesadaran situasional pada playbook."},
  {k:"Bagian Utama",n:"IPCP — CTI Information Sharing Network",p:"OJK CSIRT dan Indo-Pacific Cyber Programme",j:"Jaringan Berbagi Informasi Ancaman Siber",
   isi:["Dua fungsi utama jaringan, yaitu pertukaran informasi ancaman dan pelaporan insiden di tingkat sektor.","Menargetkan visibilitas OJK atas insiden di sekitar 100 institusi perbankan Indonesia.","Perjanjian berbagi berbentuk perjanjian kerahasiaan atau kode etik, berlaku dua arah.","Kerangka HASL mencakup penanganan (handling), tindakan (action), penyebaran ulang (sharing), dan lisensi (licensing).","Traffic Light Protocol digunakan untuk mengendalikan penyebaran, sedangkan STIX dan TAXII menjadi standar data dan pertukarannya."],
