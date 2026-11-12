@@ -276,6 +276,35 @@ abbr.term{border-bottom:1px dotted var(--red);text-decoration:none;cursor:help;c
 .axpar{padding-top:18px}
 @keyframes axGlow{0%,10%{box-shadow:0 0 0 3px rgba(219,38,42,.28),0 10px 24px rgba(219,38,42,.22);transform:translateY(-2px)}18%,100%{box-shadow:none;transform:none}}
 @media (prefers-reduced-motion:reduce){.axh,.shbox{animation:none}}
+/* ISN: matriks dan notifikasi */
+.mx{display:grid;grid-template-columns:170px repeat(5,minmax(118px,1fr));gap:6px;min-width:820px;margin-top:8px}
+.mxhd{grid-column:1;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);align-self:end}
+.mxtop{grid-column:2/7;font-size:12px;color:var(--gray);text-align:center;align-self:end;padding-bottom:4px}
+.mxsev{background:var(--bg);border-radius:12px;padding:9px 11px}
+.mxsev b{display:block;font-size:13px}.mxsev span{display:block;font-size:11.5px;color:var(--gray);line-height:1.35;margin-top:2px}
+.mxc{border-radius:12px;padding:9px 10px;font-size:11.5px;line-height:1.4;display:flex;flex-direction:column;justify-content:center;
+  animation:mxIn .5s var(--ease) both;animation-delay:calc(var(--k)*.08s)}
+.mxc b{font-size:15px;margin-bottom:2px}
+.mxc.C1{background:#b5161a;color:#fff}.mxc.C2{background:var(--red);color:#fff}.mxc.C3{background:#f3a9ab;color:#5a0d0f}
+.mxc.C4{background:var(--soft2);color:#7a1214}.mxc.C5{background:#ececee;color:var(--gray)}
+.mxax{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);align-self:center}
+.mxcol{font-size:11.5px;font-weight:600;text-align:center;line-height:1.35;padding:6px 4px}
+@keyframes mxIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+.ts{display:flex;align-items:center;gap:0;min-width:820px;position:relative;padding:8px 0 70px}
+.tsev{background:var(--dark);color:#fff;border-radius:16px;padding:16px 14px;font-weight:600;font-size:13px;width:110px;text-align:center}
+.tsar{width:52px;text-align:center;color:var(--red);font-weight:700;font-size:16px}
+.tsar em{display:block;font-style:normal;font-size:10px;letter-spacing:.05em;text-transform:uppercase}
+.tsq{position:relative;width:150px;height:150px;display:grid;place-items:center}
+.tsq:before{content:"";position:absolute;inset:22px;background:#fff;transform:rotate(45deg);border-radius:14px;box-shadow:inset 0 0 0 2px var(--red);
+  animation:tsPulse 4.5s infinite;animation-delay:calc(var(--i)*1.5s)}
+.tsq>div{position:relative;font-size:11.5px;font-weight:600;text-align:center;line-height:1.35;padding:0 34px}
+.tsno{position:absolute;top:-6px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gray)}
+.tsend{border-radius:16px;padding:14px;font-size:13px;width:130px;text-align:center;background:var(--red);color:#fff}
+.tsvol{position:absolute;left:150px;right:0;bottom:8px;border:1.5px dashed var(--gray);border-radius:14px;padding:10px 14px;font-size:12.5px;color:var(--gray);background:#fff}
+@keyframes tsPulse{0%,25%{background:var(--soft)}35%,100%{background:#fff}}
+.tlpt td:first-child{white-space:nowrap}
+.tlpchip{display:inline-block;font-weight:700;font-size:11.5px;padding:3px 9px;border-radius:8px;color:#fff}
+@media (prefers-reduced-motion:reduce){.mxc,.tsq:before{animation:none}}
 @keyframes viewIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.35)}}
 
@@ -1246,6 +1275,37 @@ const ANNEX_SA=[
   {h:"Penyediaan akses platform CTI",i:[["Tetapkan alur yang mengatur metode akses, kategorisasi data, dan klasifikasinya"],["Tetapkan proses pemberian akses berbasis peran (RBAC) sesuai cara CTI diakses"],["Pastikan pemberian akses melalui proses persetujuan yang dapat diaudit"]]},
   {h:"Analisis log akses CTI",i:[["Jika CTI diakses secara otomatis atau melalui login, pastikan akses dan login tersebut diaudit"],["Audit log akses CTI paling sedikit seminggu sekali atau setiap ada tanda penyalahgunaan"],["Buat tiket insiden untuk setiap anomali yang ditemukan dan beri tahu ahli CSIRT"]]}]}];
 const SHARE10=["Tetapkan tujuan dan sasaran berbagi informasi","Identifikasi sumber CTI internal yang sudah ada","Tentukan cakupan kegiatan berbagi informasi","Tetapkan aturan berbagi informasi","Bergabung dan berpartisipasi dalam kegiatan berbagi informasi","Aktif memperkaya indikator","Gunakan alur kerja yang aman dan otomatis","Siapkan perjanjian berbagi informasi ancaman sejak awal","Lindungi keamanan dan privasi informasi sensitif","Sediakan dukungan berkelanjutan untuk kegiatan berbagi informasi"];
+/* ====== ISN: bagan asli ====== */
+const CT={C1:["30 menit","2 jam"],C2:["1 jam","4 jam"],C3:["2 jam","24 jam"],C4:["4 jam","48 jam"],C5:["12 jam","72 jam"]};
+function isnMatrix(){
+  const rows=[["Signifikan","Gangguan berkepanjangan pada banyak sistem dan/atau kebocoran data",["C4","C2","C2","C1","C1"]],
+   ["Mayor","Banyak sistem atau pengguna dibobol",["C4","C3","C2","C2","C1"]],
+   ["Sedang","Satu sistem atau pengguna dibobol",["C4","C3","C3","C3","C2"]],
+   ["Rendah","Serangan berbahaya tingkat rendah yang terkoordinasi",["C5","C4","C4","C3","C3"]],
+   ["Sangat kecil","Pemindaian (probing) sistem atau pengguna",["C5","C5","C5","C4","C4"]]];
+  const cols=["Pengguna tertentu atau departemen terbatas","Gangguan tingkat departemen dalam satu entitas","Gangguan berkepanjangan pada satu organisasi","Gangguan pada beberapa organisasi","Gangguan berat pada beberapa organisasi"];
+  let k=0;
+  const body=rows.map(([sv,ex,cs],r)=>`<div class="mxsev"><b>${sv}</b><span>${ex}</span></div>`+cs.map((c,j)=>{
+     const t=(r===3&&j===3)?["2 jam","8 jam*"]:CT[c];
+     return `<div class="mxc ${c}" style="--k:${(4-r)+j}"><b>${c}</b><span>Respons ${t[0]}</span><span>Lapor ${t[1]}</span></div>`}).join('')).join('');
+  return `<div class="axscroll"><div class="mx">
+   <div class="mxhd">Keparahan</div>${cols.map(()=> '').join('')}<div class="mxtop">Batas waktu respons awal (IRT) dan laporan pendahuluan (PIRT)</div>
+   ${body}
+   <div class="mxax">Potensi dampak →</div>${cols.map(c=>`<div class="mxcol">${c}</div>`).join('')}
+  </div></div>
+  <p class="src">Disusun ulang dari Figure 2 (hal. 13), yang disalin dari IPCP Incident Management Playbook. Kategori ditentukan oleh perpotongan tingkat keparahan (baris) dan luas dampak (kolom). *Bagan asli mencantumkan PIRT &lt;8 jam pada sel ini, berbeda dari C3 lainnya yang &lt;24 jam. Kemungkinan besar salah ketik, sehingga perlu dikonfirmasi sebelum diadopsi.</p>`;
+}
+function isnTwoStep(){
+  const q=["Berdampak buruk pada keamanan jaringan atau layanan?","Berdampak pada operasional jaringan atau layanan?","Dampaknya signifikan?"];
+  return `<div class="axscroll"><div class="ts">
+   <div class="tsev">Kejadian keamanan</div>
+   ${q.map((t,i)=>`<div class="tsar"><em>Ya</em>→</div><div class="tsq" style="--i:${i}"><div>${t}</div><span class="tsno">Tidak ↑</span></div>`).join('')}
+   <div class="tsar"><em>Ya</em>→</div><div class="tsend man">Notifikasi insiden <b>wajib</b></div>
+   <div class="tsvol">Jika salah satu jawaban <b>tidak</b> → Notifikasi insiden <b>sukarela</b></div>
+  </div></div>
+  <p class="src">Disusun ulang dari Figure 3 (hal. 14). Dokumen menawarkan model ini sebagai proses sementara untuk mendorong pelaporan, sampai pendekatan yang lebih formal dan diatur ditetapkan.</p>`;
+}
+
 const share10=()=>`<div class="shgrid">${SHARE10.map((t,i)=>`<div class="shbox" style="--i:${i};--n:10"><span>${i+1}</span>${t}</div>`).join('')}</div>
  <p class="src">Disusun ulang dari Figure 6 (hal. 16), yang mengacu pada NIST SP 800-150. Urutan nomor mengikuti arah panah pada bagan aslinya.</p>`;
 
@@ -1413,18 +1473,35 @@ const DIAG={
         ["A — Action","Tindakan yang boleh dilakukan penerima atas informasi tersebut, misalnya apakah boleh memberi tahu pihak yang terdampak."],
         ["S — Sharing","Penyebaran ulang yang diizinkan dan hal yang harus dilakukan terlebih dahulu, termasuk menentukan berbagi yang wajib dan yang sukarela."],
         ["L — Licensing","Perjanjian, lisensi, atau syarat penggunaan yang berlaku atas informasi yang dibagikan."]],[],4)+
- H("Traffic Light Protocol: semakin ke bawah, semakin bebas disebarkan")+
- `<div>${[["TLP:RED",18,"Tidak boleh keluar dari percakapan tempat informasi itu disampaikan. Umumnya dipertukarkan secara lisan atau tatap muka."],
-   ["TLP:AMBER+STRICT",30,"Hanya boleh diteruskan ke anggota organisasi penerima sendiri, atas dasar perlu tahu."],
-   ["TLP:AMBER",42,"Boleh diteruskan ke organisasi penerima dan kliennya, atas dasar perlu tahu (Perban BSSN 1/2024 Lampiran B). IPCP memperluasnya ke organisasi lain di sektor, tetapi playbook mengikuti definisi Perban yang mengikat."],
-   ["TLP:GREEN",54,"Boleh diteruskan ke rekan sejawat dan mitra di dalam komunitas, tetapi tidak melalui kanal yang dapat diakses publik."],
-   ["TLP:CLEAR",66,"Tanpa batasan penyebaran, tetap tunduk pada aturan hak cipta."]]
-   .map(([t,w,d],i)=>`<div class="tlp"><div class="bar ${i>2?'mut':''}" style="width:${w}%">${t}</div><span>${d}</span></div>`).join('')}</div>`+
- `<p class="src">Penandaan ini mengatur penyebaran, bukan tingkat kerahasiaan. Dokumen bertanda TLP:RED tidak otomatis berarti rahasia negara. Penandaan ini hanya berarti dokumen tersebut tidak boleh diteruskan ke luar.</p>`+
+ H("Traffic Light Protocol")+
+ `<div class="tlpt">`+tbl(["Label dan arti","Kapan digunakan","Cara membagikan"],
+  [[`<span class="tlpchip" style="background:#1d1d1f">TLP:RED</span><br>Tidak untuk disebarkan, terbatas pada peserta`,"Informasi tidak dapat ditindaklanjuti tanpa risiko besar bagi privasi, reputasi, atau operasional organisasi yang terlibat","Tidak boleh dibagikan ke luar pertemuan atau percakapan tempat informasi disampaikan. Umumnya dipertukarkan secara lisan, tatap muka, atau melalui saluran yang sangat terbatas"],
+   [`<span class="tlpchip" style="background:#b5161a">TLP:AMBER+STRICT</span><br>Terbatas pada organisasi penerima`,"Informasi perlu dukungan untuk ditindaklanjuti, tetapi berisiko jika dibagikan ke luar organisasi penerima","Hanya boleh dibagikan ke anggota organisasi penerima sendiri, atas dasar perlu tahu"],
+   [`<span class="tlpchip" style="background:#db262a">TLP:AMBER</span><br>Terbatas pada organisasi peserta`,"Informasi perlu dukungan untuk ditindaklanjuti, tetapi berisiko jika dibagikan ke luar organisasi yang terlibat","Menurut IPCP, boleh dibagikan ke anggota organisasi sendiri (CSIRT) dan organisasi sektor, atas dasar perlu tahu"],
+   [`<span class="tlpchip" style="background:#e07b7d">TLP:GREEN</span><br>Terbatas pada komunitas`,"Informasi berguna untuk meningkatkan kesadaran di komunitas yang lebih luas","Boleh dibagikan ke rekan dan mitra di komunitas, tetapi tidak melalui saluran publik. Tanpa ketentuan lain, tidak boleh keluar dari komunitas CSIRT atau sektor keuangan"],
+   [`<span class="tlpchip" style="background:#86868b">TLP:CLEAR</span><br>Tidak dibatasi`,"Risiko penyalahgunaan sangat kecil atau tidak ada, sesuai aturan rilis publik","Boleh dibagikan tanpa batasan, tetap tunduk pada aturan hak cipta"]])+`</div>`+
+ `<p class="src">Disusun ulang dari Figure 1 (hal. 9), yang mengutip CISA. Penandaan TLP mengatur penyebaran, bukan tingkat kerahasiaan. Untuk TLP:AMBER, Perban BSSN 1/2024 Lampiran B membatasinya pada organisasi penerima dan kliennya, sehingga playbook mengikuti definisi Perban yang mengikat.</p>`+
  H("Standar teknis yang menyertainya")+
  cards([["STIX","Standar struktur data intelijen ancaman, agar informasi dari sumber berbeda memiliki bentuk yang sama."],
         ["TAXII","Standar cara pertukaran data tersebut antarorganisasi."],
-        ["MISP","Platform berbagi yang paling banyak digunakan. Pemilihannya tetap perlu analisis biaya dan manfaat."]]),
+        ["MISP","Platform berbagi yang paling banyak digunakan. Pemilihannya tetap perlu analisis biaya dan manfaat."]])+
+ H("Kategori dampak insiden berdasarkan empat aspek")+
+ tbl(["Kategori","Kerahasiaan","Integritas","Ketersediaan","Keaslian"],
+  [["<b>C1</b> — Signifikan","Kehilangan data tidak terenkripsi","Dampak besar pada data di sistem kritikal","Kehilangan sistem kritikal","—"],
+   ["<b>C2</b> — Mayor","Kehilangan data terenkripsi","Data terdampak di sistem kritikal","Gangguan pada sistem kritikal","Banyak akun dibobol"],
+   ["<b>C3</b> — Sedang","Sistem kritikal ditembus tanpa kehilangan data","Data terdampak di sistem non-kritikal","Kehilangan sistem non-kritikal","Akun individual dibobol"],
+   ["<b>C4</b> — Rendah","Sistem non-kritikal ditembus tanpa kehilangan data","Sistem ditembus tanpa data terdampak","Gangguan pada sistem non-kritikal","—"],
+   ["<b>C5</b> — Sangat kecil","Percobaan tidak berhasil","Percobaan tidak berhasil","Percobaan tidak berhasil","Percobaan tidak berhasil"]])+
+ `<p class="src">Disusun ulang dari tabel kategori dampak (hal. 12). Tanda — menandai sel yang kosong di tabel aslinya. Satu insiden dapat berdampak pada beberapa aspek sekaligus, misalnya ransomware dengan pemerasan ganda yang mengenai kerahasiaan, integritas, dan ketersediaan.</p>`+
+ H("Matriks batas waktu respons dan pelaporan")+
+ isnMatrix()+
+ H("Model notifikasi insiden dua langkah")+
+ isnTwoStep()+
+ H("Empat aktivitas inti dalam membangun jaringan")+
+ kc([["1. Tetapkan tata kelola","Jaringan hanya diakses organisasi dan pengguna yang berhak, sesuai perjanjian berbagi dan aturan klasifikasi."],
+     ["2. Bangun jaringan","Disesuaikan dengan kebutuhan sektor agar bank mudah menerima dan membagikan CTI."],
+     ["3. Sediakan alat pelaporan","Agar CSIRT dan bank dapat berkolaborasi melalui jaringan dan memiliki gambaran situasi terkini."],
+     ["4. Laporkan insiden","Pelaporan insiden signifikan diwajibkan, dan pelaporan sukarela atas insiden lain didorong."]]),
 
 "IPCP — Cyber Crisis Communications":
  H("Ambang pelaporan menurut kategori")+
@@ -1553,7 +1630,7 @@ const DOCS=[
   isi:["Disusun untuk CSIRT sektor perbankan yang dikembangkan OJK dan Bank Indonesia, dengan fokus pada kesadaran situasional melalui intelijen ancaman siber (CTI).","Kesadaran situasional terdiri atas tiga komponen, yaitu akuisisi data, analisis dan sintesis, serta komunikasi.","Membedakan empat jenis intelijen, yaitu strategis, teknis, operasional, dan taktis, serta menjelaskan indicator of compromise dan pemetaan taktik, teknik, dan prosedur pelaku dengan MITRE ATT&CK.","Membahas cara membangun kemampuan CTI, mulai dari pemilihan platform, taksonomi bersama dengan standar STIX dan TAXII, hingga ragam sumber data CTI.","Menetapkan sepuluh sasaran berbagi CTI yang mengacu pada NIST SP 800-150, klasifikasi informasi dengan Traffic Light Protocol, serta pengamanan CTI saat disimpan maupun dikirim.","Menguraikan empat alur kerja CTI, yaitu pengumpulan, penyebaran, umpan balik, serta penyimpanan, akses, dan audit platform."],
   menggunakan:"Pilar kesadaran situasional pada playbook."},
  {k:"Bagian Utama",n:"IPCP — CTI Information Sharing Network",p:"OJK CSIRT dan Indo-Pacific Cyber Programme",j:"Jaringan Berbagi Informasi Ancaman Siber",
-  isi:["Dua fungsi utama jaringan, yaitu pertukaran informasi ancaman dan pelaporan insiden di tingkat sektor.","Menargetkan visibilitas OJK atas insiden di sekitar 100 institusi perbankan Indonesia.","Perjanjian berbagi berbentuk perjanjian kerahasiaan atau kode etik, berlaku dua arah.","Kerangka HASL mencakup penanganan (handling), tindakan (action), penyebaran ulang (sharing), dan lisensi (licensing).","Traffic Light Protocol digunakan untuk mengendalikan penyebaran, sedangkan STIX dan TAXII menjadi standar data dan pertukarannya."],
+  isi:["Panduan untuk membangun jaringan berbagi informasi (ISN) intelijen ancaman siber yang dikelola CSIRT sektor perbankan, dengan dua tujuan, yaitu berbagi intelijen ancaman secara cepat dan tepercaya, serta memperbaiki pelaporan insiden signifikan dari sekitar 100 bank.","Tahap membangun jaringan mencakup tata kelola dengan CSIRT sebagai sekretariat, pertemuan pengembangan dua kali setahun, kajian hukum termasuk pelindungan data pribadi, perjanjian berbagi berupa perjanjian kerahasiaan atau kode etik, serta aturan berbagi dengan kerangka HASL.","Tahap menjalankan jaringan untuk berbagi intelijen mengatur apa yang dibagikan (indikator, TTP, peringatan keamanan, dan laporan intelijen ancaman), cara berbaginya (platform seperti MISP, standar STIX dan TAXII, serta Traffic Light Protocol), dan pemanfaatannya oleh bank.","Tahap menjalankan jaringan untuk pelaporan insiden mengatur insiden yang perlu dilaporkan, kategori dampak C1 sampai C5, matriks batas waktu respons dan pelaporan, serta model notifikasi dua langkah untuk membedakan pelaporan wajib dan sukarela.","Ditutup dengan empat aktivitas inti, yaitu menetapkan tata kelola, membangun jaringan, menyediakan alat pelaporan, dan mewajibkan pelaporan insiden signifikan."],
   menggunakan:"Pilar berbagi informasi pada playbook."},
  {k:"Bagian Utama",n:"IPCP — Cyber Crisis Communications",p:"OJK CSIRT dan Indo-Pacific Cyber Programme",j:"Komunikasi Krisis Siber",
   isi:["Peran utama CSIRT sektor selama krisis adalah koordinasi dan komunikasi, bukan respons teknis.","Ambang pelaporan berjenjang, yaitu kategori 1 dalam 2 jam, kategori 2 dalam 4 jam, kategori 3 dalam 24 jam, kategori 4 dalam 2 hari, kategori 5 dalam 3 hari.","Insiden kategori 1 dan 2 diteruskan ke CSIRT nasional, yaitu BSSN.","Tim krisis lebih luas daripada tim teknis, mencakup manajemen senior, penasihat hukum, hubungan masyarakat, perwakilan organisasi terdampak, dan spesialis pihak ketiga.","Protokol komunikasi publik enam langkah, dilengkapi empat tantangan yang sudah diperkirakan."],
