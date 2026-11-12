@@ -229,6 +229,51 @@ abbr.term{border-bottom:1px dotted var(--red);text-decoration:none;cursor:help;c
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}section.view.on{animation:none}}
 
+/*AX*/
+/* alur kerja CSIRT sektor */
+.axstrip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 10px}
+.axstrip span{background:var(--soft);color:var(--red);font-weight:600;font-size:13px;border-radius:980px;padding:7px 14px}
+.axstrip span.two{border-radius:16px;line-height:1.5}
+.axstrip em{font-style:normal;color:var(--red);font-weight:700}
+.axbox{background:var(--bg);border-radius:24px;padding:18px}
+.axbox>input{position:absolute;opacity:0;pointer-events:none}
+.axbox>label{display:inline-flex;align-items:center;gap:8px;margin:0 8px 8px 0;padding:9px 15px;border-radius:980px;background:#fff;
+  font-size:13px;font-weight:600;color:var(--dark);cursor:pointer;box-shadow:inset 0 0 0 1px var(--line);transition:all .25s}
+.axbox>label i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--soft2);color:var(--red);font-size:12px}
+.axpane{display:none;margin-top:6px}
+#axtA:checked~label[for=axtA],#axtB:checked~label[for=axtB],#axtC:checked~label[for=axtC],#axtD:checked~label[for=axtD]{background:var(--red);color:#fff;box-shadow:none}
+#axtA:checked~label[for=axtA] i,#axtB:checked~label[for=axtB] i,#axtC:checked~label[for=axtC] i,#axtD:checked~label[for=axtD] i{background:#fff}
+#axtA:checked~.axpane[data-a=A],#axtB:checked~.axpane[data-a=B],#axtC:checked~.axpane[data-a=C],#axtD:checked~.axpane[data-a=D]{display:block;animation:viewIn .5s var(--ease)}
+.axleg{display:flex;flex-wrap:wrap;gap:14px;margin:6px 0 12px;font-size:12px;color:var(--gray)}
+.axleg span:before{content:"";display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-2px}
+.axleg .m:before{background:var(--red)}.axleg .s:before{background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+.axleg .o:before{background:var(--soft2)}.axleg .p:before{background:var(--dark)}.axleg .x:before{background:#86868b}
+.axin{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;font-size:13px}
+.axin b{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray)}
+.axin span{background:#fff;border-radius:10px;padding:6px 11px;box-shadow:inset 0 0 0 1px var(--line)}
+.axscroll{overflow-x:auto;padding-bottom:6px}
+.axrow{display:flex;align-items:flex-start;gap:0;min-width:max-content}
+.axcol{width:178px;display:flex;flex-direction:column;align-items:stretch}
+.axh{border-radius:14px;padding:11px 12px;font-size:13px;font-weight:600;line-height:1.35;min-height:78px;
+  animation:axGlow calc(var(--n)*1.3s) infinite;animation-delay:calc(var(--i)*1.3s)}
+.axh.m,.axh.q{background:var(--red);color:#fff}
+.axh.q{border:2px dashed #fff;outline:2px solid var(--red)}
+.axh em{display:block;font-style:normal;font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.85;margin-bottom:2px}
+.axh.o{background:var(--soft2);color:var(--red)}
+.axh.p{background:var(--dark);color:#fff}
+.axb{background:#fff;border-radius:12px;padding:10px 12px;font-size:12.5px;line-height:1.4;color:#424245;box-shadow:inset 0 0 0 1px var(--line)}
+.axb.o{background:var(--soft2);color:var(--red);font-weight:600;box-shadow:none}
+.axb.x{background:#86868b;color:#fff;font-weight:600;box-shadow:none}
+.axb.q{background:var(--soft);color:var(--red);font-weight:600;box-shadow:inset 0 0 0 1.5px var(--red)}
+.axv{text-align:center;color:var(--red);font-size:13px;line-height:1;padding:5px 0}
+.axlab{display:block;font-style:normal;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--red);margin:-2px 0 3px}
+.axarr{width:58px;flex:none;align-self:flex-start;margin-top:26px;text-align:center;color:var(--red);font-weight:700;font-size:16px}
+.axarr em{display:block;font-style:normal;font-size:9.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;line-height:1.2;margin-bottom:2px}
+.axpar{margin-left:26px;border-left:2px dashed var(--red);padding-left:20px}
+.axpar>b{display:block;color:var(--red);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;margin:-18px 0 4px}
+.axpar{padding-top:18px}
+@keyframes axGlow{0%,10%{box-shadow:0 0 0 3px rgba(219,38,42,.28),0 10px 24px rgba(219,38,42,.22);transform:translateY(-2px)}18%,100%{box-shadow:none;transform:none}}
+@media (prefers-reduced-motion:reduce){.axh{animation:none}}
 @keyframes viewIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.35)}}
 
@@ -1122,6 +1167,52 @@ const tbl=(head,rows)=>`<div class="tablewrap" style="max-height:none"><table><t
 const steps=(items)=>items.map(([t,d],i)=>`<div class="step"><div class="num">${i+1}</div><div><b style="font-size:.86rem">${t}</b><p style="margin-top:3px">${d}</p></div></div>`).join('');
 const H=t=>`<h3 class="sub">${t}</h3>`;
 
+/* ====== ALUR KERJA CSIRT SEKTOR (IPCP), mengikuti bagan Annex A–D ====== */
+/* tipe kotak: m = langkah utama, o = kabar ke organisasi, p = persiapan, x = tutup, q = keputusan */
+const ANNEX=[
+ {id:"A",t:"Penerimaan laporan",src:"Annex A, hal. 18",in:["Laporan insiden","Pemerintah (BSSN)"],cols:[
+  {h:"Insiden diterima, dicatat, atau diperbarui",i:[["Melalui email atau sistem tiket"],["Validasi kelengkapan informasi inti"],["Konfirmasi penerimaan insiden kepada organisasi","o"]]},
+  {h:"Insiden valid?",ty:"q",i:[["Perbarui dan tutup insiden","x","Tidak"]],go:"Ya"},
+  {h:"Pastikan jenis insiden ditentukan",i:[["Cocokkan dengan laporan insiden lain"]]},
+  {h:"Proses insiden dan tentukan jalur eskalasi",i:[["Perlu investigasi teknis?","q"],["Tugaskan insiden untuk dianalisis","","Ya"]]},
+  {h:"Terima atau klasifikasikan ulang jenis insiden berdasarkan insiden terkait di sektor",i:[]},
+  {h:"Perbarui insiden dengan langkah berikutnya dan kapan kabar selanjutnya diharapkan",i:[["Perbarui insiden bersama organisasi","o"]]}]},
+ {id:"B",t:"Analisis insiden",src:"Annex B, hal. 21",in:["Insiden yang sudah dicatat dan ditugaskan"],cols:[
+  {h:"Triage insiden",i:[["Tentukan potensi dampak dan relevansinya bagi sektor"],["Tentukan kekritisan berdasarkan matriks kategorisasi insiden CSIRT"],["Tentukan batas waktu pelaporan berdasarkan peringkat kekritisan"]]},
+  {h:"Perbarui insiden",i:[["Langkah berikutnya yang mungkin diambil"],["Kapan kabar berikutnya diharapkan"],["Perubahan peringkat kekritisan"],["Perbarui insiden bersama organisasi","o"]]},
+  {h:"Tentukan atau konfirmasi akar penyebab insiden",i:[["Identifikasi indicator of compromise dan TTP"],["Cocokkan dengan laporan insiden lain untuk analisis tren atau TTP"],["Cocokkan TTP pelaku, IP berbahaya, vendor, dan informasi lain dengan feed CTI"],["Tinjau advisory vendor yang relevan"]]},
+  {h:"Identifikasi sistem di sektor yang mungkin terdampak",i:[["Siapkan advisory untuk organisasi di sektor"]]},
+  {h:"Bagikan advisory ke organisasi sektor dan pemangku kepentingan lain",i:[["Perbarui feed CTI CSIRT sektor keuangan"],["Perbarui wiki TTP dan pelaku ancaman"],["Perbarui insiden bersama organisasi","o"]]}]},
+ {id:"C",t:"Koordinasi insiden",src:"Annex C, hal. 23",in:["Insiden yang sudah dicatat dan ditugaskan"],cols:[
+  {h:"Persiapan",ty:"p",i:[["Pastikan NDA dengan entitas pelapor sudah ada"],["Tinjau seluruh organisasi sektor secara berkala, termasuk NDA dan perjanjian dasar lainnya"]],go:"Sebelum insiden"},
+  {h:"Insiden dilaporkan",i:[["Pastikan pemangku kepentingan mengetahui insiden dan berkolaborasi dengan CSIRT sektor keuangan"],["Undang ahli CSIRT sesuai kebutuhan"],["Libatkan vendor untuk mengonfirmasi advisory atau temuan, atas permintaan analis"]]},
+  {h:"Perbarui insiden",i:[["Identifikasi kebutuhan, undangan, atau partisipasi pemangku kepentingan yang lebih luas"],["Pastikan analis memiliki seluruh informasi yang dibutuhkan"],["Undang pemangku kepentingan atau ahli sektor lain sesuai kebutuhan"]]},
+  {h:"Pastikan kabar terbaru insiden disampaikan ke organisasi",ty:"o",i:[]},
+  {h:"Tinjau dan sebarkan advisory ke organisasi atau seluruh sektor sesuai relevansinya",i:[["Perbarui wiki TTP dan pelaku ancaman"],["Pelajaran dan intelijen"],["Bagikan pelajaran"]]}],
+  par:{h:"Komunikasi media",i:[["Tanggapi pertanyaan dan permintaan klarifikasi dengan cepat"],["Pastikan informasi yang disebarkan ringkas dan benar"],["Tentukan langkah yang perlu diambil entitas sektor dan/atau publik"]]}},
+ {id:"D",t:"Dukungan manajemen krisis",src:"Annex D, hal. 25",in:["Insiden yang sudah dicatat dan ditugaskan"],cols:[
+  {h:"Tinjau kekritisan yang ditetapkan untuk insiden",i:[["Eskalasikan sesuai kekritisan ke pimpinan CSIRT sektor keuangan, yang menjadi Crisis Manager"],["Undang ahli CSIRT sesuai kebutuhan"]]},
+  {h:"Pastikan pemangku kepentingan mengetahui insiden dan berkolaborasi dengan CSIRT",i:[["Tinjau langkah berikutnya organisasi dan CSIRT, pahami dampaknya, dan kelola ekspektasi"],["Undang pemangku kepentingan atau ahli sektor lain sesuai kebutuhan"]]},
+  {h:"Perbarui insiden bersama organisasi",ty:"o",i:[]},
+  {h:"Perbarui insiden",i:[["Identifikasi kebutuhan, undangan, atau partisipasi pemangku kepentingan yang lebih luas"],["Bekerja sama dengan vendor untuk memberi panduan penanganan bila relevan"],["Tinjau insiden sebelumnya, TTP, dan wiki, lalu sebarkan pelajaran yang ditemukan"]]},
+  {h:"Perbarui insiden bersama organisasi",ty:"o",i:[]}],
+  par:{h:"Komunikasi media",i:[["Tinjau rancangan komunikasi media dan pastikan akurat"],["Tim koordinasi insiden memastikan komunikasi media benar dan relevan"]]}}];
+function annexFlows(){
+  const box=([t,ty,lab])=>`${lab?`<em class="axlab">${lab}</em>`:''}<div class="axb ${ty||''}">${t}</div>`;
+  const col=(c,k,n)=>`<div class="axcol" style="--i:${k};--n:${n}"><div class="axh ${c.ty||'m'}">${c.ty==='q'?'<em>Keputusan</em>':''}${c.h}</div>${c.i.map(x=>`<div class="axv">↓</div>`+box(x)).join('')}</div>`;
+  const tabs=ANNEX.map((a,i)=>`<input type="radio" name="axt" id="axt${a.id}" ${i?'':'checked'}><label for="axt${a.id}"><i>${a.id}</i>${a.t}</label>`).join('');
+  const panes=ANNEX.map(a=>{const n=a.cols.length;
+    return `<div class="axpane" data-a="${a.id}">
+    <div class="axin"><b>Masukan</b>${a.in.map(x=>`<span>${x}</span>`).join('')}</div>
+    <div class="axscroll"><div class="axrow">${a.cols.map((c,k)=>(k?`<div class="axarr">${a.cols[k-1].go?`<em>${a.cols[k-1].go}</em>`:''}→</div>`:'')+col(c,k,n)).join('')}
+    ${a.par?`<div class="axpar"><b>Berjalan paralel</b>${col(a.par,n,n+1)}</div>`:''}</div></div>
+    <p class="src" style="margin-top:10px">Disusun ulang dari bagan ${a.src} IPCP Incident Management Playbook. Geser ke samping untuk melihat seluruh alur.</p></div>`}).join('');
+  const leg=`<div class="axleg"><span class="m">Langkah utama</span><span class="s">Rincian langkah</span><span class="o">Kabar ke organisasi</span><span class="p">Persiapan</span><span class="x">Insiden ditutup</span></div>`;
+  return `<div class="axstrip"><span>A · Penerimaan</span><em>→</em><span>B · Analisis</span><em>→</em><span class="two">C · Koordinasi<br>D · Manajemen krisis</span></div>
+  <p class="src" style="margin:-4px 0 14px">Alur A dan B berjalan berurutan, sedangkan C dan D dapat berjalan bersamaan setelah analisis dimulai. Pilih alur untuk melihat bagannya.</p>
+  <div class="axbox">${tabs}${leg}${panes}</div>`;
+}
+
 const DIAG={
 
 "Perpres 82/2022":
@@ -1206,7 +1297,7 @@ const DIAG={
  cards([["Antisipasi — sebelum insiden","Tata kelola kelangsungan bisnis, analisis dampak bisnis dengan RTO, RPO, dan MTD, penilaian risiko, strategi ketahanan, delapan komponen rencana kelangsungan bisnis, dan pengujian ketahanan."],
         ["Bertahan dan pulih — saat insiden","Penilaian pelanggaran keamanan, respons atas insiden, manajemen krisis, pemulihan bencana, dan manajemen komunikasi insiden."],
         ["Berkelanjutan — sesudah insiden","Analisis akar masalah, tinjauan pasca-krisis, pelatihan dan peningkatan kesadaran, serta pengembangan berkelanjutan."]],[1])+
- H("Boks Ransomware Guide — sepuluh langkah pertahanan, halaman 103")+
+ H("Boks Ransomware Guide — Sepuluh langkah pertahanan")+
  tbl(["No","Langkah"],[["1","Terapkan MFA untuk semua layanan, terutama email web, VPN, dan akun yang mengakses sistem penting"],
   ["2","Terapkan prinsip hak akses seperlunya pada semua sistem"],
   ["3","Jalankan praktik baik dan aktifkan pengaturan keamanan lingkungan cloud"],
@@ -1218,14 +1309,14 @@ const DIAG={
   ["9","Simpan dan amankan log dari device jaringan dan host lokal"],
   ["10","Bangun baseline aktivitas jaringan selama beberapa bulan agar aktivitas normal dapat dibedakan dari anomali"]])+
  `<p class="src">Boks ini juga membedakan dua jenis ransomware, yaitu leakware yang mengancam membocorkan data jika tebusan tidak dibayar, dan locker yang tidak mengenkripsi data, tetapi hanya mengunci layar untuk menguji respons korban.</p>`+
- H("Lima topik kebijakan resiliensi yang dapat langsung menjadi daftar modul playbook")+
+ H("Lima topik kebijakan resiliensi yang dapat menjadi pembahasan dalam playbook")+
  `<div>${["Ketahanan operasional menyeluruh","Kelangsungan bisnis dan TI beserta manajemen krisis","Pertahanan siber dan pemulihan TI","Ketahanan pihak ketiga","Ketahanan konsumen"].map(t=>`<span class="chip">${t}</span>`).join('')}</div>`,
 
 "IPCP — Incident Management Playbook":
- H("Siapa merespons, siapa mengelola")+
- `<div class="lane act" style="opacity:1;margin-bottom:10px"><div class="hd"><b>Manajemen insiden — dijalankan CSIRT sektor</b><span>Mengawasi, mengomunikasikan, mengerahkan dukungan, mengeskalasi, melaporkan, dan memberi notifikasi sepanjang insiden berlangsung</span></div></div>`+
- kc([["Triage","Pahami insiden dan dampaknya"],["Analyse","Kumpulkan dan analisis data"],["Contain","Hentikan dan cegah penyebaran"],["Eradicate","Hapus ancaman sepenuhnya"],["Recover","Pulihkan data dan sistem"],["Review","Tinjau untuk menemukan perbaikan"]])+
- `<p class="src">Respons insiden — dijalankan pemilik sistem di bank yang terdampak</p>`+
+ H("Pembagian peran antara bank dan CSIRT sektor")+
+ `<div class="lane act" style="opacity:1;margin-bottom:10px"><div class="hd"><b>CSIRT sektor menjalankan manajemen insiden</b><span>Memantau jalannya penanganan, menjadi pusat komunikasi, mengerahkan bantuan, meneruskan eskalasi, serta menyampaikan laporan dan pemberitahuan selama insiden berlangsung</span></div></div>`+
+ kc([["Triage","Memahami insiden dan seberapa besar dampaknya"],["Analisis","Mengumpulkan dan mempelajari data insiden"],["Penahanan","Menghentikan serangan dan mencegahnya meluas"],["Pembersihan","Menghapus ancaman dari sistem sampai tuntas"],["Pemulihan","Mengembalikan data dan sistem seperti semula"],["Peninjauan","Mengevaluasi penanganan untuk menemukan perbaikan"]])+
+ `<p class="src">Enam langkah di atas adalah respons insiden yang dijalankan bank terdampak sebagai pemilik sistem. CSIRT sektor tidak mengambil alih langkah tersebut, tetapi menaungi dan mendukungnya.</p>`+
  H("Lima kategori insiden dan dua ambang waktunya")+
  tbl(["Kategori","Arti","Respons awal","Pelaporan","Contoh"],
   [["C1 — Kritis","Kehilangan data tidak terenkripsi, dampak mayor pada integritas data di sistem kritikal, atau hilangnya sistem kritikal","&lt; 30 menit","&lt; 2 jam","Beberapa bank sekaligus mengalami kebocoran data sangat sensitif"],
@@ -1241,13 +1332,8 @@ const DIAG={
         ["Manajemen kejadian keamanan informasi","Pemantauan dan deteksi, serta analisis kejadian. Tidak dipilih karena CSIRT sektor tidak melakukan pemantauan dan deteksi untuk seluruh sektor."],
         ["Alih pengetahuan","IPCP memilih pembangunan kesadaran serta pelatihan dan edukasi, dan menyatakannya di luar cakupan playbook ini."],
         ["Konsekuensinya bagi playbook","Tiga area yang tidak dibahas tetap perlu ditangani. Playbook perlu menyebutkan siapa penanggung jawabnya di jasa keuangan, agar tidak ada celah tanggung jawab saat insiden berlangsung."]],[0,1])+
- H("Lima annex dan isinya")+
- tbl(["Annex","Isinya"],
-  [["A","Alur penerimaan laporan, delapan langkah dari laporan masuk sampai tiket dibuka"],
-   ["B","Alur analisis insiden, lima belas langkah"],
-   ["C","Alur koordinasi insiden lintas organisasi"],
-   ["D","Alur dukungan manajemen krisis"],
-   ["E","Templat pelaporan 12 bagian, yaitu pelacakan, gambaran umum, kekritisan dan jenis, tindakan awal, konteks, dugaan penyebab, pembatasan dampak, komunikasi publik, detail teknis, kemampuan pemulihan, tindakan lanjutan, dan informasi kontak"]]),
+ H("Empat alur kerja CSIRT sektor")+
+ annexFlows(),
 
 "IPCP — Situational Awareness (CTI)":
  H("Tiga komponen kesadaran situasional")+
@@ -1420,7 +1506,7 @@ const DOCS=[
   isi:["Menempatkan keamanan siber sebagai bagian dari resiliensi digital, yaitu kemampuan bank bertahan, pulih, dan menyesuaikan diri terhadap gangguan.","Memetakan regulasi resiliensi di Indonesia dan menunjukkan bahwa pedoman operasional untuk pertahanan siber dan pemulihan TI belum tersedia. Kekosongan ini yang akan diisi oleh playbook.","Membagi penanganan gangguan ke dalam tiga fase, yaitu antisipasi sebelum insiden, bertahan dan pulih saat insiden, serta berkelanjutan sesudah insiden. Fase ini dapat menjadi kerangka urutan bab playbook.","Menyediakan bahan yang dapat langsung diadopsi, antara lain analisis dampak bisnis dengan RTO, RPO, dan MTD, delapan komponen rencana kelangsungan bisnis, rencana manajemen krisis, dan matriks komunikasi insiden.","Memuat sepuluh langkah pertahanan ransomware yang dapat menjadi isi modul ransomware."],
   menggunakan:"Kerangka utama struktur playbook sekaligus dasar argumen perlunya playbook."},
  {k:"Bagian Utama",n:"IPCP — Incident Management Playbook",p:"OJK CSIRT dan Indo-Pacific Cyber Programme",j:"Manajemen Insiden Siber oleh CSIRT Sektor",
-  isi:["Organisasi berperan sebagai pelaksana respons insiden, sedangkan CSIRT sektor menjalankan manajemen insiden yang menaungi dan mendukung respons tersebut.","Matriks kategorisasi C1 sampai C5 berdasarkan empat aspek, yaitu kerahasiaan, keutuhan, ketersediaan, dan keaslian.","Memuat dua ambang waktu, yaitu respons awal (30 menit hingga 12 jam) dan pelaporan pendahuluan (2 hingga 72 jam).","Kategori C1 hanya dapat dipertahankan atau diturunkan. Sebaliknya, C5 hanya dapat dipertahankan atau dinaikkan.","Annex A–D memuat alur kerja, sedangkan Annex E memuat templat pelaporan 12 bagian."],
+  isi:["Membedakan dua peran dalam penanganan insiden. Bank sebagai pemilik sistem menjalankan respons insiden, sedangkan CSIRT sektor menjalankan manajemen insiden yang memantau, mengoordinasikan, dan mendukung respons tersebut.","Mengelompokkan insiden ke dalam lima kategori, yaitu C1 sampai C5, berdasarkan dampaknya terhadap kerahasiaan, integritas, ketersediaan, dan keaslian data atau sistem.","Setiap kategori memiliki dua batas waktu, yaitu respons awal (30 menit untuk C1 hingga 12 jam untuk C5) dan laporan pendahuluan (2 jam untuk C1 hingga 72 jam untuk C5).","Kategori dapat berubah seiring bertambahnya informasi. C1 hanya dapat dipertahankan atau diturunkan, C5 hanya dapat dipertahankan atau dinaikkan, sedangkan C2 sampai C4 dapat bergerak ke dua arah.","Menguraikan empat alur kerja CSIRT sektor, yaitu penerimaan laporan, analisis insiden, koordinasi insiden, dan dukungan manajemen krisis.","Insiden C1 dan C2 mendapat dukungan manajemen krisis, dengan pimpinan senior CSIRT sebagai Crisis Manager."],
   menggunakan:"Pilar manajemen insiden pada playbook."},
  {k:"Bagian Utama",n:"IPCP — Situational Awareness (CTI)",p:"OJK CSIRT dan Indo-Pacific Cyber Programme",j:"Kesadaran Situasional dan Intelijen Ancaman Siber",
   isi:["Terdiri atas tiga komponen, yaitu akuisisi data, analisis dan sintesis, serta komunikasi.","Membedakan empat jenis intelijen: strategis untuk pembaca non-teknis, teknis berbasis vendor atau versi software, operasional tentang ancaman spesifik ke sektor, dan taktis dari insiden yang sedang terjadi.","Memuat daftar indicator of compromise (IoC) yang dapat langsung digunakan bank.","Memetakan taktik, teknik, dan prosedur menggunakan empat belas taktik MITRE ATT&CK.","Dilengkapi studi kasus Operation Sharpshooter dan peta ATT&CK Navigator."],
