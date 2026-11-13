@@ -395,6 +395,28 @@ details.more[open]>summary:before{content:"−"}
 .tlpd b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:3px}
 .tlpd p{font-size:13.5px}
 @media (max-width:760px){.tlpd{grid-template-columns:1fr}.tlpl1{width:100%}}
+/* Crisis comms: matriks lapor dan siklus */
+.rpm{display:flex;flex-direction:column;gap:10px}
+.rpg{display:flex;gap:12px;border-radius:20px;padding:12px;background:var(--bg)}
+.rpg.u{background:var(--soft)}
+.rpgl{flex:none;width:96px;display:grid;place-items:center;border-radius:14px;font-weight:700;font-size:13px;color:#fff;background:#86868b}
+.rpg.u .rpgl{background:var(--red)}.rpg.p .rpgl{background:#e07b7d}
+.rpgr{flex:1;display:flex;flex-direction:column;gap:8px}
+.rpr{display:grid;grid-template-columns:110px 80px repeat(3,1fr);gap:8px;align-items:center;background:#fff;border-radius:14px;padding:10px 12px}
+.rpr b{font-size:14px}.rpt{font-weight:700;color:var(--red);font-size:15px}
+.rpc{text-align:center;font-size:12.5px;font-weight:600;border-radius:10px;padding:7px 4px;background:#f2f2f4;color:#b0b0b5;line-height:1.25}
+.rpc small{font-weight:500;font-size:10.5px}
+.rpc.on{background:var(--soft2);color:#7a1214}.rpc.on.w{background:var(--red);color:#fff}
+@media (max-width:760px){.rpg{flex-direction:column}.rpgl{width:auto;padding:6px}.rpr{grid-template-columns:1fr 1fr}}
+.lc{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:12px}
+.lc>em,.lcbox>em{font-style:normal;color:var(--red);font-weight:700}
+.lcbox{position:relative;display:flex;align-items:center;gap:8px;border:2px dashed var(--red);border-radius:18px;padding:22px 12px 12px}
+.lcl{position:absolute;top:-10px;left:14px;background:#fff;padding:0 6px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--red)}
+.lcs{border-radius:14px;padding:16px 14px;font-size:13px;font-weight:600;text-align:center;min-width:104px}
+.lcs.pre{background:var(--bg);color:var(--dark)}.lcs.det{background:var(--dark);color:#fff}
+.lcs.act{background:var(--red);color:#fff;animation:axGlow 4.8s infinite;animation-delay:calc(var(--i)*1.2s)}
+.lcs.det{animation:axGlow 4.8s infinite}
+.lcs.post{background:#86868b;color:#fff}
 /* tabel berwarna */
 .tablewrap{box-shadow:0 0 0 1px rgba(219,38,42,.18),0 14px 34px rgba(219,38,42,.06)}
 th{background:linear-gradient(180deg,#e2393d,var(--red));color:#fff;border-bottom:0;font-size:12.5px;letter-spacing:.02em}
@@ -1616,20 +1638,32 @@ const DIAG={
      ["4. Laporkan insiden","Pelaporan insiden signifikan diwajibkan, dan pelaporan sukarela atas insiden lain didorong."]]),
 
 "IPCP — Cyber Crisis Communications":
- H("Ambang pelaporan menurut kategori")+
- tbl(["Kategori","Deadline lapor","Cara pelaporan"],
-  [["Kategori 1","2 jam","Wajib ke CSIRT sektor dan diteruskan ke CSIRT nasional, yaitu BSSN"],
-   ["Kategori 2","4 jam","Wajib ke CSIRT sektor dan diteruskan ke CSIRT nasional, yaitu BSSN"],
-   ["Kategori 3","24 jam","Wajib ke CSIRT sektor, sedangkan sukarela melalui platform intelijen"],
-   ["Kategori 4","2 hari","Sukarela melalui platform intelijen"],
-   ["Kategori 5","3 hari","Sukarela melalui platform intelijen"]])+
- H("Protokol komunikasi publik, enam langkah")+
- `<div>${steps([["Putuskan perlu atau tidaknya pengungkapan","Keputusan ada pada organisasi terdampak sebagai pemilik sistem dan data. Pertimbangannya meliputi siapa yang terkena, apakah datanya terenkripsi, seberapa banyak yang hilang, serta kewajiban regulasi dan undang-undang."],
-   ["Rumuskan pesannya","Sampaikan apa yang diketahui dan apa yang sedang dilakukan. Jangan mengecilkan tingkat keparahan, jangan menyalahkan pihak lain, dan jangan menggunakan istilah teknis."],
-   ["Tentukan waktunya","Sedapat mungkin cepat, meskipun baru berupa pernyataan sementara. Lebih baik melebihkan perkiraan dampak dan berbicara lebih awal daripada menunggu data lengkap lalu terlambat."],
-   ["Tentukan caranya","CSIRT umumnya menggunakan kanal tidak langsung karena tidak memegang data kontak nasabah. Sediakan halaman web yang diperbarui pada ritme yang sama dengan pernyataan."],
-   ["Siapkan reaksinya","Seluruh staf krisis dibekali isi pesan, kapasitas layanan telepon dan situs ditambah, dan jawaban sementara disiapkan untuk pertanyaan yang datang."],
-   ["Sampaikan pesannya","Berikan kejelasan, tunjukkan tanggung jawab, dan konsisten dengan kerangka pesan. Pesan disampaikan oleh pejabat senior yang terlatih menghadapi media."]])}</div>`+
+ H("Lima peran CSIRT sektor saat krisis")+
+ cards([["Menerima laporan insiden","Menerima, memproses, dan menilai laporan, lalu menganalisis data untuk membangun pemahaman di tingkat sektor."],
+        ["Analisis artefak dan bukti forensik","Dapat membantu analisis teknis yang rinci atas insiden dan artefak yang digunakan pelaku."],
+        ["Koordinasi insiden","Memantau status respons di bank terdampak, berkoordinasi dengan CSIRT lain, ahli, dan vendor, serta menyebarkan kabar terbaru."],
+        ["Dukungan manajemen krisis","Memberi keahlian, laporan status, dan saran teknis maupun nonteknis untuk pengambilan keputusan strategis."],
+        ["Komunikasi","Memberi tahu perubahan risiko dan situasi, serta mengelola arus informasi agar tim komunikasi menerima informasi yang akurat dan tepat waktu."]],[2,4])+
+ `<p class="src">Respons teknis tetap dijalankan bank sebagai pemilik sistem. CSIRT sektor tidak menangani krisis secara langsung, tetapi mendukung dan mengoordinasikannya di tingkat sektor.</p>`+
+ H("Kategori insiden berdasarkan dampak")+
+ tbl(["Kategori","Kerahasiaan","Integritas","Ketersediaan","Keaslian"],
+  [["<b>Kategori 1</b><br>Signifikan","Kehilangan data tidak terenkripsi","Dampak besar pada data di sistem kritikal","Kehilangan sistem kritikal","—"],
+   ["<b>Kategori 2</b><br>Mayor","Kehilangan data terenkripsi","Data terdampak di sistem kritikal","Gangguan pada sistem kritikal","Banyak akun dibobol"],
+   ["<b>Kategori 3</b><br>Dampak sedang","Sistem kritikal ditembus tanpa kehilangan data","Data terdampak di sistem non-kritikal","Kehilangan sistem non-kritikal","Akun individual dibobol"],
+   ["<b>Kategori 4</b><br>Dampak rendah","Sistem non-kritikal ditembus tanpa kehilangan data","Sistem ditembus tanpa data terdampak","Gangguan pada sistem non-kritikal","—"],
+   ["<b>Kategori 5</b><br>Dampak sangat kecil","Percobaan tidak berhasil","Percobaan tidak berhasil","Percobaan tidak berhasil","Percobaan tidak berhasil"]])+
+ `<p class="src">Disusun ulang dari Figure 1 (hal. 6). Tanda — menandai sel yang kosong di tabel aslinya.</p>`+
+ H("Deadline dan jalur pelaporan per kategori")+
+ `<div class="rpm">${[["Mendesak","u",[["Kategori 1","2 jam",1,1],["Kategori 2","4 jam",1,1]]],["Prioritas","p",[["Kategori 3","24 jam",1,0]]],["Rutin","r",[["Kategori 4","2 hari",0,0],["Kategori 5","3 hari",0,0]]]]
+   .map(([g,c,rows])=>`<div class="rpg ${c}"><div class="rpgl">${g}</div><div class="rpgr">${rows.map(([k,t,sek,nas])=>`<div class="rpr"><b>${k}</b><span class="rpt">${t}</span>
+     <span class="rpc on">Sukarela<br><small>Platform CTI</small></span>
+     <span class="rpc ${sek?'on w':''}">${sek?'Wajib':'—'}<br><small>CSIRT sektor</small></span>
+     <span class="rpc ${nas?'on w':''}">${nas?'Wajib':'—'}<br><small>BSSN</small></span></div>`).join('')}</div></div>`).join('')}</div>`+
+ `<p class="src">Disusun ulang dari Figure 2, 3, dan 4 (hal. 6–7). Untuk kategori 1 dan 2, laporan ke BSSN diteruskan oleh CSIRT sektor, dan pelaporan sukarela dapat dilakukan melalui MISP.</p>`+
+ H("Siklus hidup insiden")+
+ `<div class="lc"><div class="lcs pre">Persiapan</div><em>→</em><div class="lcbox"><span class="lcl">Siklus hidup insiden</span>
+   ${["Identifikasi dan deteksi","Penahanan","Pembersihan","Pemulihan"].map((t,i)=>`<div class="lcs ${i?'act':'det'}" style="--i:${i}">${t}</div>`).join('<em>→</em>')}</div><em>→</em><div class="lcs post">Pelajaran dan pascainsiden</div></div>`+
+ `<p class="src">Disusun ulang dari Figure 5 (hal. 8). Siklus hidup insiden dihitung sejak insiden terdeteksi sampai seluruh layanan pulih, dan dapat berlangsung berhari-hari hingga berminggu-minggu. Selama itu, kategori insiden dapat naik jika dampaknya lebih luas, atau turun jika lebih kecil dari perkiraan awal.</p>`+
  H("Susunan tim krisis — lebih luas daripada tim teknis")+
  cards([["Major Incident Manager","Ditunjuk dari dalam CSIRT beserta wakilnya, mengoordinasikan respons lintas tim dan spesialis luar, serta dibebastugaskan dari pekerjaan rutin selama krisis."],
         ["Manajemen senior","Perwakilan pimpinan OJK dan Bank Indonesia yang berwenang mengambil keputusan strategis."],
@@ -1637,6 +1671,35 @@ const DIAG={
         ["Hubungan masyarakat","Profesional media yang memimpin penyusunan pesan di tingkat sektor, bukan staf teknis CSIRT."],
         ["Perwakilan organisasi terdampak","Menjaga agar pesan sektor dan pesan bank yang terdampak tidak saling bertentangan."],
         ["Spesialis pihak ketiga","Penyedia jasa keamanan alih daya dan perwakilan vendor yang sistemnya terlibat."]],[0])+
+ H("Pertukaran informasi teknis saat krisis")+
+ cards([["Dengan siapa berkomunikasi","Bank di sektor, BSSN, serta lembaga lain dan vendor. Kontak utama dan cadangan tiap bank harus selalu diperbarui."],
+        ["Informasi apa yang dibutuhkan","Dituangkan dalam templat laporan insiden yang disepakati sebelumnya, termasuk kebutuhan informasi BSSN."],
+        ["Siapa yang memimpin komunikasi","Satu petugas ditunjuk untuk berhubungan dengan bank terdampak, agar bank tidak menerima permintaan berulang dari tim berbeda."],
+        ["Kapan berkomunikasi","Pada jadwal tetap yang disepakati, misalnya kabar terbaru tiap 6 jam ke bank atau tiap 12 jam ke BSSN."]],[],4)+
+ H("Empat tingkat koordinasi")+
+ `<div class="tier">
+  <div class="tr" style="--i:0"><b>Tingkat nasional</b><span>BSSN</span><p>Koordinasi, komunikasi, dan dukungan krisis lintas sektor</p></div>
+  <div class="tra">↕</div>
+  <div class="tr hot" style="--i:1"><b>Tingkat sektor</b><span>CSIRT sektor</span><p>Koordinasi krisis, komunikasi, dan dukungan di seluruh sektor</p></div>
+  <div class="tra">↕</div>
+  <div class="tr" style="--i:2"><b>Antarbank</b><span>CSIRT sektor</span><p>Mengoordinasikan intelijen dan dukungan antarbank</p></div>
+  <div class="tra">↕</div>
+  <div class="tr" style="--i:3"><b>Tingkat organisasi</b><span>Bank</span><p>Mengelola dan merespons insiden di sistemnya</p></div>
+ </div>`+
+ `<p class="src">Disusun dari bab 6.1.4 (hal. 10–11). Seluruh koordinasi ini perlu direncanakan, dilatih, dan diuji sebelum insiden terjadi.</p>`+
+ H("Komunikasi publik sebelum insiden, empat langkah")+
+ kc([["1. Susun rencana","Rencana komunikasi krisis"],["2. Bangun hubungan","Dengan seluruh pemangku kepentingan"],["3. Latih bersama","Jalankan rencana bersama pemangku kepentingan"],["4. Perbarui","Pelihara dan perbarui rencana bila perlu"]])+
+ H("Komunikasi publik setelah insiden, enam langkah")+
+ `<div>${steps([["Putuskan perlu atau tidaknya pengungkapan","Keputusan ada pada organisasi terdampak sebagai pemilik sistem dan data. Pertimbangannya meliputi siapa yang terkena, apakah datanya terenkripsi, seberapa banyak yang hilang, serta kewajiban regulasi dan undang-undang."],
+   ["Rumuskan pesannya","Sampaikan apa yang diketahui dan apa yang sedang dilakukan. Jangan mengecilkan tingkat keparahan, jangan menyalahkan pihak lain, dan jangan menggunakan istilah teknis."],
+   ["Tentukan waktunya","Sedapat mungkin cepat, meskipun baru berupa pernyataan sementara. Lebih baik melebihkan perkiraan dampak dan berbicara lebih awal daripada menunggu data lengkap lalu terlambat."],
+   ["Tentukan caranya","CSIRT umumnya menggunakan kanal tidak langsung karena tidak memegang data kontak nasabah. Sediakan halaman web yang diperbarui pada ritme yang sama dengan pernyataan."],
+   ["Siapkan reaksinya","Seluruh staf krisis dibekali isi pesan, kapasitas layanan telepon dan situs ditambah, dan jawaban sementara disiapkan untuk pertanyaan yang datang."],
+   ["Sampaikan pesannya","Pesan disampaikan oleh pejabat senior yang terlatih menghadapi media."]])}</div>`+
+ H("Tiga kunci menyampaikan pesan")+
+ cards([["Berikan kejelasan","Pesan sederhana dan mudah dipahami, tanpa istilah teknis, karena sebagian besar pendengar bukan orang teknis."],
+        ["Tunjukkan tanggung jawab","Tegaskan bahwa sektor menangani kejadian ini sebagai krisis, menanggapinya dengan serius, dan sedang berkoordinasi."],
+        ["Konsisten dengan kerangka pesan","Pesan bank, sektor, dan nasional disinkronkan oleh Major Incident Manager bersama penasihat media agar tidak saling bertentangan."]])+
  H("Empat tantangan yang sudah diperkirakan")+
  cards([["Nada pesan","Hindari anggapan bahwa jawaban harus sangat teknis agar dipercaya, dan hindari kesan pertarungan antara penyerang dan bank. Tema utamanya adalah pelindungan data pribadi dan pemulihan layanan."],
         ["Data yang belum ada","Sering kali belum dapat dipastikan data mana yang terdampak sampai forensik selesai. Siapkan pernyataan sementara agar sikap diam tidak dianggap sebagai upaya menutupi informasi, dan bangun hubungan kerja yang terlatih dengan tim koordinasi insiden agar update teknis cepat sampai."],
@@ -1745,7 +1808,7 @@ const DOCS=[
   isi:["Panduan untuk membangun jaringan berbagi informasi (ISN) intelijen ancaman siber yang dikelola CSIRT sektor perbankan, dengan dua tujuan, yaitu berbagi intelijen ancaman secara cepat dan tepercaya, serta memperbaiki pelaporan insiden signifikan dari sekitar 100 bank.","Tahap membangun jaringan mencakup tata kelola dengan CSIRT sebagai sekretariat, pertemuan pengembangan dua kali setahun, kajian hukum termasuk pelindungan data pribadi, perjanjian berbagi berupa perjanjian kerahasiaan atau kode etik, serta aturan berbagi dengan kerangka HASL.","Tahap menjalankan jaringan untuk berbagi intelijen mengatur apa yang dibagikan (indikator, TTP, peringatan keamanan, dan laporan intelijen ancaman), cara berbaginya (platform seperti MISP, standar STIX dan TAXII, serta Traffic Light Protocol), dan pemanfaatannya oleh bank.","Tahap menjalankan jaringan untuk pelaporan insiden mengatur insiden yang perlu dilaporkan, kategori dampak C1 sampai C5, matriks batas waktu respons dan pelaporan, serta model notifikasi dua langkah untuk membedakan pelaporan wajib dan sukarela.","Ditutup dengan empat aktivitas inti, yaitu menetapkan tata kelola, membangun jaringan, menyediakan alat pelaporan, dan mewajibkan pelaporan insiden signifikan."],
   menggunakan:"Pilar berbagi informasi pada playbook."},
  {k:"Bagian Utama",n:"IPCP — Cyber Crisis Communications",p:"OJK CSIRT dan Indo-Pacific Cyber Programme",j:"Komunikasi Krisis Siber",
-  isi:["Peran utama CSIRT sektor selama krisis adalah koordinasi dan komunikasi, bukan respons teknis.","Ambang pelaporan berjenjang, yaitu kategori 1 dalam 2 jam, kategori 2 dalam 4 jam, kategori 3 dalam 24 jam, kategori 4 dalam 2 hari, kategori 5 dalam 3 hari.","Insiden kategori 1 dan 2 diteruskan ke CSIRT nasional, yaitu BSSN.","Tim krisis lebih luas daripada tim teknis, mencakup manajemen senior, penasihat hukum, hubungan masyarakat, perwakilan organisasi terdampak, dan spesialis pihak ketiga.","Protokol komunikasi publik enam langkah, dilengkapi empat tantangan yang sudah diperkirakan."],
+  isi:["Panduan perencanaan dan prosedur komunikasi saat krisis siber, untuk CSIRT sektor perbankan yang dikembangkan OJK dan Bank Indonesia.","Menegaskan peran CSIRT sektor saat krisis, yaitu menerima laporan, membantu analisis, mengoordinasikan insiden, mendukung manajemen krisis, dan mengelola komunikasi. Respons teknis tetap dijalankan bank sebagai pemilik sistem.","Menetapkan ambang pelaporan berupa lima kategori insiden berdasarkan dampaknya terhadap kerahasiaan, integritas, ketersediaan, dan keaslian, beserta deadline dan jalur pelaporannya. Kategori 1 dan 2 diteruskan ke BSSN.","Menjelaskan siklus hidup insiden, kemungkinan naik atau turunnya kategori, serta susunan tim krisis yang lebih luas daripada tim teknis dan dipimpin Major Incident Manager.","Mengatur pertukaran informasi teknis selama krisis, mulai dari saluran komunikasi dan perjanjian berbagi informasi hingga pembagian koordinasi antara bank, CSIRT sektor, dan BSSN.","Memandu komunikasi publik, yaitu empat langkah persiapan sebelum insiden, enam langkah setelah insiden, koordinasi pesan, dan empat tantangan yang perlu diantisipasi."],
   menggunakan:"Pilar komunikasi krisis pada playbook."},
  {k:"Bagian Rujukan",n:"NIST CSF 2.0 (CSWP 29)",p:"NIST",j:"Kerangka Kerja Keamanan Siber",
   isi:["Terdiri atas tiga komponen, yaitu Core yang berisi enam fungsi, Organizational Profile, dan Tiers.","Enam fungsinya adalah Govern, Identify, Protect, Detect, Respond, dan Recover. Govern ditambahkan pada versi 2.0 dan menaungi kelima fungsi lainnya.","Govern, Identify, dan Protect membantu mencegah dan bersiap menghadapi insiden, sedangkan Govern, Detect, Respond, dan Recover membantu menemukan dan mengelolanya.","Fungsi digambarkan sebagai roda karena semua fungsi saling berkaitan, dan dijalankan bersamaan.","Berlaku untuk teknologi dan ukuran organisasi apa pun."],
