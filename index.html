@@ -417,6 +417,59 @@ details.more[open]>summary:before{content:"−"}
 .lcs.act{background:var(--red);color:#fff;animation:axGlow 4.8s infinite;animation-delay:calc(var(--i)*1.2s)}
 .lcs.det{animation:axGlow 4.8s infinite}
 .lcs.post{background:#86868b;color:#fff}
+/* MITRE ATT&CK */
+.atk{display:grid;grid-template-columns:repeat(14,150px);gap:8px}
+.atkc{background:var(--bg);border-radius:14px;padding:12px;border-top:4px solid var(--red);animation:viewIn .5s var(--ease) both;animation-delay:calc(var(--i)*.04s)}
+.atkc span{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:11px;font-weight:700}
+.atkc b{display:block;font-size:13px;margin:6px 0 3px;line-height:1.25}.atkc p{font-size:12px;color:#424245;line-height:1.4}
+.trd{font-weight:700;font-size:12px;white-space:nowrap}.trd.up{color:var(--red)}.trd.dn{color:#2e7d4f}
+td code{font-size:12px;background:var(--bg);padding:2px 6px;border-radius:6px}
+.nav{display:grid;grid-template-columns:repeat(14,128px);gap:6px}
+.navc{display:flex;flex-direction:column;gap:5px}
+.navh{background:var(--dark);color:#fff;font-size:11.5px;font-weight:700;border-radius:10px;padding:8px;min-height:44px;line-height:1.25}
+.navt{font-size:11.5px;border-radius:8px;padding:7px 8px;background:#f2f2f4;color:#b0b0b5;line-height:1.3}
+.navt.on{background:var(--red);color:#fff;font-weight:600;animation:axGlow 5s infinite}
+.navd{background:var(--bg);border-radius:16px;padding:14px 16px}
+.navd b{display:block;color:var(--red);font-size:13px;margin-bottom:4px}.navd p{font-size:13px;color:#424245;line-height:1.45;margin-top:3px}
+.navd em{font-style:normal;font-weight:600;color:var(--dark)}
+/* BI: swimlane TTIS-SK */
+.swl{display:grid;grid-template-columns:120px repeat(4,minmax(190px,1fr));gap:8px;min-width:960px}
+.swh{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--dark);border-radius:10px;padding:9px 10px;text-align:center}
+.swh:first-child{background:none}
+.swn{writing-mode:vertical-rl;transform:rotate(180deg);display:grid;place-items:center;border-radius:12px;font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#fff;padding:10px 0}
+.swn.sk{background:var(--red)}.swn.org{background:#424245}
+.swc{display:flex;flex-direction:column;gap:7px;background:var(--bg);border-radius:14px;padding:10px}
+.swb{background:#fff;border-radius:10px;padding:9px 10px;font-size:12.5px;line-height:1.4;box-shadow:inset 0 0 0 1px var(--line);position:relative}
+.swb i{font-style:normal;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-size:11px;font-weight:700;margin-right:6px;vertical-align:1px}
+.swb.m{animation:axGlow 7s infinite;animation-delay:calc(var(--i)*1s)}
+.swb.prep{background:var(--soft2);box-shadow:none;color:#7a1214;font-weight:600}
+.swb.opt{background:transparent;box-shadow:none;border:1.5px dashed var(--gray);color:var(--gray)}
+.swb.up:after{content:"↑ ke TTIS-SK";position:absolute;right:8px;top:-9px;font-size:10px;font-weight:700;color:var(--red);background:#fff;padding:0 4px;border-radius:6px}
+.swb small{display:block;color:var(--gray);font-size:11px;margin-top:2px}
+.swb.start,.swb.end{text-align:center;font-weight:700;background:var(--dark);color:#fff;box-shadow:none;border-radius:980px}
+.swq{border:2px solid var(--red);border-radius:12px;padding:9px 10px;background:#fff;font-size:12px}
+.swq b{display:block;color:var(--red);margin-bottom:3px}.swq span{display:block;color:#424245}
+.swcyc{display:flex;flex-direction:column;gap:6px;border:2px dashed var(--red);border-radius:14px;padding:12px}
+.swcyc span{background:var(--red);color:#fff;font-weight:600;font-size:12.5px;text-align:center;border-radius:10px;padding:9px}
+.swcyc em{font-style:normal;text-align:center;font-size:11px;color:var(--red);font-weight:700}
+.swleg{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.swleg span{font-size:11px;background:var(--bg);border-radius:980px;padding:4px 10px;color:var(--gray)}
+.org{background:var(--bg);border-radius:20px;padding:16px}
+.orgtop{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.orgb{background:var(--dark);color:#fff;border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:6px}
+.orgb b{font-size:12px;letter-spacing:.05em;text-transform:uppercase;margin-right:4px}
+.orgp{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:860px){.orgp{grid-template-columns:1fr}}
+.orgc{background:#fff;border-radius:16px;padding:12px}
+.orgc h5{font-size:14px;font-weight:700;color:var(--red);margin-bottom:8px}
+.orgs{margin-top:8px}.orgs b{display:block;font-size:12px;margin-bottom:4px}
+.u{display:inline-block;font-size:10.5px;font-weight:700;border-radius:6px;padding:3px 6px;margin:0 3px 3px 0;color:#fff}
+.u.bi{background:#3a3a3c}.u.ojk{background:var(--red)}
+.orgleg{display:flex;gap:8px;justify-content:center;margin-top:10px}
+.scl{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.scb{flex:1;min-width:150px;border-radius:16px;padding:14px;text-align:center}
+.scb b{display:block;font-size:16px}.scb span{font-size:13px}
+.scb.s0{background:var(--red);color:#fff}.scb.s1{background:#f3a9ab;color:#5a0d0f}.scb.s2{background:var(--soft);color:#7a1214}
 /* tabel berwarna */
 .tablewrap{box-shadow:0 0 0 1px rgba(219,38,42,.18),0 14px 34px rgba(219,38,42,.06)}
 th{background:linear-gradient(180deg,#e2393d,var(--red));color:#fff;border-bottom:0;font-size:12.5px;letter-spacing:.02em}
@@ -1365,6 +1418,10 @@ const ANNEX=[
 function axSel(btn){const box=btn.closest('.axbox');
   box.querySelectorAll('.axtab').forEach(b=>b.classList.toggle('on',b===btn));
   box.querySelectorAll('.axpane').forEach(p=>p.classList.toggle('on',p.dataset.a===btn.dataset.a));}
+function axCols(cols,par){const n=cols.length;
+  const box=([t,ty,lab])=>`${lab?`<em class="axlab">${lab}</em>`:''}<div class="axb ${ty||''}">${t}</div>`;
+  const col=(c,k)=>`<div class="axcol" style="--i:${k};--n:${n}"><div class="axh ${c.ty||'m'}">${c.h}</div>${c.i.map(x=>`<div class="axv">↓</div>`+box(x)).join('')}</div>`;
+  return `<div class="axscroll"><div class="axrow">${cols.map((c,k)=>(k?'<div class="axarr">→</div>':'')+col(c,k)).join('')}${par?`<div class="axpar"><b>${par.l}</b>${col(par,n)}</div>`:''}</div></div>`;}
 function annexFlows(list,doc,strip){
   const box=([t,ty,lab])=>`${lab?`<em class="axlab">${lab}</em>`:''}<div class="axb ${ty||''}">${t}</div>`;
   const col=(c,k,n)=>`<div class="axcol" style="--i:${k};--n:${n}"><div class="axh ${c.ty||'m'}">${c.ty==='q'?'<em>Keputusan</em>':''}${c.h}</div>${c.i.map(x=>`<div class="axv">↓</div>`+box(x)).join('')}</div>`;
@@ -1408,6 +1465,15 @@ const ANNEX_SA=[
   {h:"Kebutuhan kebijakan platform CTI",i:[["Bagaimana CTI harus disimpan, misalnya dikategorikan, dienkripsi, atau diklasifikasikan?"],["Kebijakan keamanan informasi internal CSIRT mana yang harus dipatuhi?"],["Apakah log akses CTI memenuhi ketentuan pencatatan dalam kebijakan CSIRT?"]]},
   {h:"Penyediaan akses platform CTI",i:[["Tetapkan alur yang mengatur metode akses, kategorisasi data, dan klasifikasinya"],["Tetapkan proses pemberian akses berbasis peran (RBAC) sesuai cara CTI diakses"],["Pastikan pemberian akses melalui proses persetujuan yang dapat diaudit"]]},
   {h:"Analisis log akses CTI",i:[["Jika CTI diakses secara otomatis atau melalui login, pastikan akses dan login tersebut diaudit"],["Audit log akses CTI paling sedikit seminggu sekali atau setiap ada tanda penyalahgunaan"],["Buat tiket insiden untuk setiap anomali yang ditemukan dan beri tahu ahli CSIRT"]]}]}];
+const TACTICS=[["Reconnaissance","Mengumpulkan informasi untuk merencanakan serangan"],["Resource Development","Menyiapkan sumber daya untuk mendukung serangan"],["Initial Access","Masuk ke jaringan korban"],["Execution","Menjalankan kode berbahaya"],["Persistence","Mempertahankan akses ke sistem"],["Privilege Escalation","Mendapatkan hak akses lebih tinggi"],["Defense Evasion","Menghindari deteksi"],["Credential Access","Mencuri akun dan kredensial"],["Discovery","Memetakan sistem di dalam jaringan"],["Lateral Movement","Berpindah ke sistem lain"],["Collection","Mengumpulkan data yang akan dicuri"],["Command and Control","Mengendalikan sistem yang dibobol dari jarak jauh"],["Exfiltration","Membawa data keluar dari jaringan"],["Impact","Memanipulasi, mengganggu, atau merusak sistem dan data"]];
+const TOP20=[["Process Injection","T1055","Privilege escalation","NA","u"],["Input Capture","T1056","Collection","NA","u"],["System Information Discovery","T1082","Discovery","3","d"],["DLL Side-Loading","T1574.002","Persistence","12","u"],["Non-Application Layer Protocol","T1095","Command and control","14","u"],["Application Layer Protocol","T1071","Command and control","10","u"],["Command and Scripting Interpreter","T1059","Execution","9","u"],["Scheduled Task/Job","T1053","Privilege escalation","NA","u"],["Registry Run Keys/Startup Folder","T1547.001","Persistence","NA","u"],["Masquerading","T1036","Defense evasion","6","d"],["Replication Through Removable Media","T1091","Lateral movement","NA","u"],["Windows Service","T1543.003","Persistence","NA","u"],["File and Directory Discovery","T1083","Discovery","11","d"],["Windows Management Instrumentation","T1047","Execution","19","u"],["Remote System Discovery","T1018","Discovery","5","d"],["Virtualization/Sandbox Evasion","T1497","Defense evasion","3","d"],["Taint Shared Content","T1080","Lateral movement","NA","u"],["Disable or Modify Tools","T1562.001","Defense evasion","7","d"],["Process Discovery","T1057","Discovery","4","d"],["Data Encrypted for Impact","T1486","Impact","NA","u"]];
+const SHARP={"Resource Development":[["Web Services","Dropbox dipakai untuk menyimpan dokumen umpan dan downloader tahap pertama"],["Server","Server yang dibobol dipakai sebagai infrastruktur kampanye"],["Malware","Memakai backdoor modular Rising Sun"],["Upload Malware","File berbahaya ditaruh di Dropbox dan situs lain"]],
+ "Initial Access":[["Native API","Downloader tahap pertama memanggil berbagai library dan API Windows"]],
+ "Execution":[["Visual Basic","Makro VBA menjalankan downloader yang memasang Rising Sun"],["Dynamic Data Exchange","Dokumen Word OLE berbahaya dikirim ke korban"],["Malicious File","Korban diharapkan membuka file Word atau PDF berbahaya"]],
+ "Persistence":[["Registry Run Keys / Startup Folder","Rising Sun dipasang di folder Startup sebagai mssync.exe"]],
+ "Privilege Escalation":[["Process Injection","Shellcode menyuntikkan downloader ke memori Word"]],
+ "Defense Evasion":[["Match Legitimate Name or Location","Rising Sun disamarkan sebagai mssync.exe di folder Startup"]],
+ "Command and Control":[["Ingress Tool Transfer","Payload tambahan diunduh setelah korban terinfeksi"],["Proxy","Layanan ExpressVPN dipakai untuk menyembunyikan lokasi"]]};
 const SHARE10=["Tetapkan tujuan dan sasaran berbagi informasi","Identifikasi sumber CTI internal yang sudah ada","Tentukan cakupan kegiatan berbagi informasi","Tetapkan aturan berbagi informasi","Bergabung dan berpartisipasi dalam kegiatan berbagi informasi","Aktif memperkaya indikator","Gunakan alur kerja yang aman dan otomatis","Siapkan perjanjian berbagi informasi ancaman sejak awal","Lindungi keamanan dan privasi informasi sensitif","Sediakan dukungan berkelanjutan untuk kegiatan berbagi informasi"];
 /* ====== ISN: bagan asli ====== */
 const CT={C1:["30 menit","2 jam"],C2:["1 jam","4 jam"],C3:["2 jam","24 jam"],C4:["4 jam","48 jam"],C5:["12 jam","72 jam"]};
@@ -1451,7 +1517,13 @@ const DIAG={
  kc([["Pasal 4 — pihak yang terikat","Keuangan ditetapkan sebagai salah satu sektor Infrastruktur Informasi Vital (IIV), dan otoritas pengatur dan pengawas sektor keuangan ditunjuk sebagai kementerian atau lembaga yang mengampu sektor tersebut. Dengan demikian, bank yang sistemnya ditetapkan sebagai IIV tunduk pada seluruh kewajiban berikutnya.","Dasar berlakunya seluruh kewajiban"],
      ["Pasal 7–10 — persiapan sebelum insiden","BSSN menyusun kerangka kerja pelindungan IIV. Kementerian atau lembaga menyusun peta jalan sektor untuk lima tahun dan meninjaunya setiap tahun. Penyelenggara IIV menerapkan standar keamanan dan manajemen risiko keamanan siber.","Sejalan dengan SEOJK 29 Bab III tentang manajemen risiko"],
      ["Pasal 13–14 — penanganan saat insiden","Tim tanggap insiden siber organisasi melaporkan insiden kepada tim sektoral dengan tembusan kepada tim nasional paling lambat 1×24 jam sejak insiden ditemukan. Setelah itu, insiden ditangani melalui penanggulangan dan pemulihan, penyampaian informasi kepada pihak terkait, serta diseminasi informasi pencegahan.","Dasar Jalur 2 pada alur pelaporan"],
-     ["Pasal 18, 22, 23 — pemeliharaan berkelanjutan","Pasal 18 membuka ruang pembentukan forum berbagi informasi keamanan siber. Pasal 22 mewajibkan penyelenggara IIV mengukur tingkat kematangan keamanan sibernya secara mandiri paling sedikit satu kali dalam setahun dan melaporkannya kepada kementerian atau lembaga. Pasal 23 menetapkan BSSN sebagai koordinator pelindungan IIV.","Dasar jaringan berbagi informasi"]]),
+     ["Pasal 18, 22, 23 — pemeliharaan berkelanjutan","Pasal 18 membuka ruang pembentukan forum berbagi informasi keamanan siber. Pasal 22 mewajibkan penyelenggara IIV mengukur tingkat kematangan keamanan sibernya secara mandiri paling sedikit satu kali dalam setahun dan melaporkannya kepada kementerian atau lembaga. Pasal 23 menetapkan BSSN sebagai koordinator pelindungan IIV.","Dasar jaringan berbagi informasi"]])+
+H("Ketentuan lain yang perlu diketahui")+
+ cards([["Laporan manajemen risiko","Penyelenggara IIV wajib melaporkan hasil penerapan manajemen risiko keamanan sibernya kepada kementerian atau lembaga. Laporan insiden IIV dikaitkan dengan hasil ini.","Pasal 10 ayat (3) dan 13 ayat (2)"],
+        ["Kesiapan","Penyelenggara IIV, kementerian atau lembaga, dan BSSN menyusun rencana tanggap insiden, rencana keberlangsungan kegiatan, dan menjalankan simulasinya.","Pasal 15"],
+        ["Manajemen krisis siber","Krisis siber terjadi jika insiden terus meningkat dan berdampak luas, sehingga ditangani melalui manajemen krisis.","Pasal 16"],
+        ["Kerja sama luar negeri","Otoritas sektor keuangan dikecualikan dari kewajiban konsultasi dengan Kemlu dan BSSN, tetapi tetap wajib menginformasikan kerja samanya kepada BSSN.","Pasal 21"],
+        ["Koordinasi nasional","BSSN mengoordinasikan pelindungan IIV melalui rapat koordinasi paling sedikit satu kali setahun atau sewaktu-waktu, lalu melaporkannya kepada Presiden.","Pasal 23–25"]].map(([t,d,ps])=>[t,d+` <span class="qsrc">${ps}</span>`]),[2]),
 
 "Perban BSSN 8/2020":
  H("Enam tahap kewajiban")+
@@ -1466,7 +1538,21 @@ const DIAG={
  cards([["Strategis","Berdampak serius terhadap kepentingan umum, pelayanan publik, kelancaran penyelenggaraan negara, atau pertahanan dan keamanan negara. Wajib menerapkan SNI ISO/IEC 27001, standar BSSN, dan standar kementerian atau lembaga."],
         ["Tinggi","Berdampak terbatas pada kepentingan sektor dan/atau daerah tertentu. Wajib menerapkan SNI ISO/IEC 27001 dan/atau standar BSSN, ditambah standar kementerian atau lembaga."],
         ["Rendah","Sistem elektronik lain yang tidak termasuk dua kategori di atas. Cukup menerapkan SNI ISO/IEC 27001 atau standar BSSN."]],[0])+
- `<p class="src">Perban ini tidak memakai istilah sistem kritikal. Namun, kategori di atas dan parameter tingkat kekritisan data dan proses pada lampiran penilaian mandirinya dapat diusulkan sebagai acuan bagi matriks kategorisasi insiden IPCP, yang menyebut sistem kritikal dan non-kritikal tanpa mendefinisikannya.</p>`,
+ `<p class="src">Perban ini tidak memakai istilah sistem kritikal. Namun, kategori di atas dan parameter tingkat kekritisan data dan proses pada lampiran penilaian mandirinya dapat diusulkan sebagai acuan bagi matriks kategorisasi insiden IPCP, yang menyebut sistem kritikal dan non-kritikal tanpa mendefinisikannya.</p>`+
+H("Sepuluh indikator penilaian mandiri kategori sistem")+
+ tbl(["No","Indikator","A (nilai 5)","B (nilai 2)","C (nilai 1)"],
+  [["1","Nilai investasi sistem","Lebih dari Rp30 miliar","Rp3–30 miliar","Kurang dari Rp3 miliar"],
+   ["2","Anggaran operasional tahunan","Lebih dari Rp10 miliar","Rp1–10 miliar","Kurang dari Rp1 miliar"],
+   ["3","Kewajiban kepatuhan","Aturan atau standar nasional dan internasional","Aturan atau standar nasional","Tidak ada aturan khusus"],
+   ["4","Teknik kriptografi","Kriptografi khusus bersertifikat negara","Kriptografi standar industri","Tidak memakai kriptografi"],
+   ["5","Jumlah pengguna","Lebih dari 5.000","1.000–5.000","Kurang dari 1.000"],
+   ["6","Data pribadi yang dikelola","Data pribadi yang saling terhubung","Data pribadi individu atau badan usaha","Tidak ada data pribadi"],
+   ["7","Klasifikasi data","Sangat rahasia","Rahasia dan/atau terbatas","Biasa"],
+   ["8","Kekritisan proses","Mengganggu hajat hidup orang banyak, berdampak langsung ke layanan publik","Mengganggu hajat hidup orang banyak, berdampak tidak langsung","Hanya berdampak pada bisnis perusahaan"],
+   ["9","Dampak kegagalan sistem","Layanan publik nasional terhenti atau keamanan negara terancam","Layanan publik di satu provinsi atau lebih terhenti","Layanan publik di satu kabupaten/kota atau lebih terhenti"],
+   ["10","Potensi kerugian","Menimbulkan korban jiwa","Terbatas pada kerugian finansial","Gangguan operasional sementara"]])+
+ `<div class="scl">${[["Strategis","36–50"],["Tinggi","16–35"],["Rendah","10–15"]].map(([k,v],i)=>`<div class="scb s${i}"><b>${k}</b><span>Total nilai ${v}</span></div>`).join('')}</div>`+
+ `<p class="src">Disusun ulang dari Lampiran format penilaian mandiri. Indikator 8, 9, dan 10 paling relevan untuk mendefinisikan sistem kritikal pada matriks kategori insiden.</p>`,
 
 "Perban BSSN 1/2024":
  `<p class="src" style="margin-bottom:12px">Peraturan ini adalah menggantikan Perban BSSN 10/2020 tentang Tim Tanggap Insiden Siber. Pasal 29 mencabut Perban 10/2020 sejak diundangkan pada 18 Januari 2024. Isi di bawah mengikuti Perban BSSN 1/2024.</p>`+
@@ -1493,7 +1579,18 @@ const DIAG={
         ["Pelaporan diatur rinci","Ada ambang risiko tinggi, isi minimal laporan, dan deadline 1×24 jam untuk IIV."],
         ["Non-IIV ikut diwajibkan","Penyelenggara yang sistemnya tidak ditetapkan sebagai IIV juga wajib membentuk dan mendaftarkan tim tanggap insiden organisasi. Artinya, kewajiban ini berlaku untuk semua bank, tidak hanya bank yang memiliki sistem IIV."],
         ["Langkah penanganan dibakukan","Lampiran A memuat langkah penanganan per jenis insiden, dan Lampiran B memuat aturan TLP."]],[2],2)+
- `<p class="src">Tim yang sudah teregister berdasarkan Perban 10/2020 wajib menyesuaikan berkas registrasinya (Ps. 27). Validasi registrasi dipercepat dari 30 menjadi 21 hari kerja.</p>`,
+ `<p class="src">Tim yang sudah teregister berdasarkan Perban 10/2020 wajib menyesuaikan berkas registrasinya (Ps. 27). Validasi registrasi dipercepat dari 30 menjadi 21 hari kerja.</p>`+
+H("Lampiran A — langkah penanggulangan dan pemulihan insiden")+
+ axCols([{h:"1. Menyusun perencanaan",i:[["Menyusun dan menetapkan rencana tanggap insiden siber"],["Menyusun dan menetapkan rencana keberlangsungan kegiatan"],["Menjalankan dan menyimulasikan kedua rencana secara berkala"],["Memastikan personel memahami peran, urutan kerja, dan pihak terkait"],["Memastikan personel memahami prosedur rekam cadang"]]},
+  {h:"2. Menganalisis dan melaporkan",i:[["Mengumpulkan informasi kondisi terkini dari deteksi internal dan sumber eksternal"],["Mengidentifikasi dan menganalisis potensi dampak insiden"],["Mengategorikan dan memprioritaskan insiden sesuai kriteria"],["Melaporkan insiden kepada pihak berwenang sesuai kriteria dan peraturan"]]},
+  {h:"3. Menanggulangi dan memulihkan",i:[["Mengisolasi dan memitigasi insiden sesuai rencana"],["Mengumpulkan dan memelihara bukti, termasuk forensik digital"],["Menginvestigasi dan menghapus penyebab insiden"],["Eskalasi ke TTIS sektoral dan nasional jika insiden terus meluas"],["Memeriksa keamanan setiap aset setelah penanggulangan"],["Memulihkan sistem dan data dari rekam cadang yang terenkripsi"],["Menguji ulang fungsi vital berdasarkan waktu pemulihan, jumlah data, dan fungsi yang pulih"],["Menjalankan strategi komunikasi publik"],["Menyampaikan laporan hasil penanganan kepada kementerian atau lembaga sektor"]]},
+  {h:"4. Meningkatkan keamanan",i:[["Meninjau kembali efektivitas kontrol keamanan"],["Memperbarui rencana tanggap insiden dan rencana keberlangsungan kegiatan"],["Menyampaikan laporan forensik digital kepada pihak berwajib"],["Meninjau kinerja tim tanggap insiden secara berkala"]]}])+
+ `<p class="src">Disusun ulang dari Lampiran A Perban BSSN 1/2024. Keempat kelompok ini sama dengan empat kategori kegiatan penanganan pada Pasal 18.</p>`+
+ H("Lampiran B — aturan pelabelan TLP")+
+ cards([["Di email","Label TLP ditulis di baris subjek email."],
+        ["Di dokumen","Label ditulis di header dan footer setiap halaman, dengan ukuran huruf paling kecil 12 poin dan sebaiknya rata kanan."],
+        ["TLP:AMBER","Boleh dibagikan kepada anggota organisasi penerima dan kliennya, atas dasar perlu tahu."],
+        ["TLP:GREEN","Jika komunitasnya tidak disebutkan, dianggap sebagai komunitas keamanan siber."]],[2],4),
 
 "SEOJK 29/SEOJK.03/2022":
  H("Lima kewajiban utama bank")+
@@ -1587,16 +1684,39 @@ const DIAG={
         ["Analisis header email","Baris subjek, alamat balasan, link tersembunyi, gambar, dan piksel pelacak."],
         ["Jejak pada sistem","Kunci registri, proses, jalur file, atau tanda tangan digital palsu."],
         ["Anomali dari sistem deteksi","Perilaku menyimpang yang ditandai oleh sistem deteksi dan respons terpadu."]],[],2)+
- H("Pemetaan perilaku pelaku")+
- cards([["Taktik","Menjelaskan tujuan yang ingin dicapai penyerang pada satu tahap."],
-        ["Teknik","Menjelaskan cara tujuan tersebut dicapai."],
-        ["Prosedur","Menjelaskan secara rinci cara teknik tersebut dijalankan oleh pelaku tertentu."]])+
- `<p class="src">Dokumen menggunakan empat belas taktik MITRE ATT&amp;CK sebagai kerangka, dilengkapi grafik 20 teknik teratas beserta trennya, studi kasus Operation Sharpshooter dengan tiga belas sub-teknik, dan peta ATT&amp;CK Navigator.</p>`+
+ H("Pemetaan perilaku pelaku dengan MITRE ATT&amp;CK")+
+ cards([["Taktik","Tujuan yang ingin dicapai penyerang, misalnya masuk ke jaringan atau mencuri data."],
+        ["Teknik","Cara yang dipakai penyerang untuk mencapai tujuan itu. MITRE ATT&amp;CK mencatat sekitar 202 teknik dan 435 sub-teknik."],
+        ["Prosedur","Rincian cara pelaku tertentu menjalankan teknik, termasuk alat dan strateginya."]])+
+ H("Empat belas taktik MITRE ATT&amp;CK")+
+ `<div class="axscroll"><div class="atk">${TACTICS.map(([t,d],i)=>`<div class="atkc" style="--i:${i}"><span>${i+1}</span><b>${t}</b><p>${d}</p></div>`).join('')}</div></div>`+
+ `<p class="src">Disusun ulang dari bab 3.4.1 (hal. 6–7). Urutan mengikuti matriks Enterprise MITRE ATT&amp;CK, dari tahap persiapan serangan sampai dampaknya.</p>`+
+ H("Dua puluh teknik yang paling sering dipakai pelaku")+
+ tbl(["No","Teknik","ID","Taktik","Peringkat sebelumnya","Tren"],TOP20.map((r,i)=>[i+1,r[0],`<code>${r[1]}</code>`,r[2],r[3],r[4]==='u'?'<span class="trd up">▲ naik</span>':'<span class="trd dn">▼ turun</span>']))+
+ `<p class="src">Disusun ulang dari Figure 2 (hal. 7), bersumber dari BlackBerry (2024), untuk perubahan 2023 ke 2024. NA berarti belum masuk daftar pada laporan sebelumnya.</p>`+
+ cards([["Process Injection","Menjalankan kode berbahaya di dalam proses lain yang sah, sehingga dapat mengakses memori dan hak akses proses tersebut sekaligus lolos dari deteksi."],
+        ["Input Capture","Merekam masukan pengguna, misalnya di halaman login, untuk mencuri kredensial."],
+        ["System Information Discovery","Mengumpulkan informasi sistem operasi dan perangkat keras, seperti versi dan patch, untuk menyiapkan serangan lanjutan."]],[0])+
+ H("Studi kasus: Operation Sharpshooter")+
+ `<p class="src" style="margin:-4px 0 12px">Kampanye yang menyasar perusahaan nuklir, pertahanan, pemerintahan, energi, dan keuangan. Sel merah adalah 13 sub-teknik yang dipakai, ditampilkan seperti peta ATT&amp;CK Navigator.</p>`+
+ `<div class="axscroll"><div class="nav">${TACTICS.map(([t],i)=>{const u=SHARP[t]||[];return `<div class="navc"><div class="navh">${t}</div>${u.length?u.map(([n,d])=>`<div class="navt on" title="${d}">${n}</div>`).join(''):'<div class="navt">—</div>'}</div>`}).join('')}</div></div>`+
+ `<div class="grid g2" style="margin-top:12px">${Object.entries(SHARP).map(([t,u])=>`<div class="navd"><b>${t}</b>${u.map(([n,d])=>`<p><em>${n}</em> — ${d}</p>`).join('')}</div>`).join('')}</div>`+
+ `<p class="src">Disusun ulang dari bab 3.4.2 dan Figure 4 (hal. 8–10). Pengelompokan taktik mengikuti dokumen. Dokumen menaruh Native API di Initial Access, sedangkan di matriks ATT&amp;CK teknik ini termasuk Execution.</p>`+
+ H("Memahami prosedur pelaku")+
+ `<p class="src" style="margin-top:-4px">Prosedur perlu dipahami secara mendalam karena serangan jarang berdiri sendiri. Analis CSIRT dapat menelusuri hubungan aktivitas sistem, yaitu proses, thread, perubahan registri, modul atau DLL yang dimuat, file, serta aliran data, untuk menemukan penanda awal serangan (Figure 5, hal. 11).</p>`+
  H("Sepuluh sasaran berbagi CTI")+
  share10()+
  H("Empat alur kerja CTI")+
  `<p class="src" style="margin:-4px 0 14px">Pilih alur untuk melihat bagannya.</p>`+
- annexFlows(ANNEX_SA,"IPCP Situational Awareness (CTI) Playbook"),
+ annexFlows(ANNEX_SA,"IPCP Situational Awareness (CTI) Playbook")+
+H("Membangun kemampuan CTI")+
+ cards([["Platform","Platform berbagi CTI seperti MISP, OpenCTI, atau IntelMQ. MISP memiliki sekitar 84 feed bawaan, tetapi perlu dikonfigurasi dan dipilih sesuai kebutuhan sektor."],
+        ["Sumber CTI","Feed open-source dan komersial, FS-ISAC sebagai sumber khusus sektor keuangan, BSSN, serta honeypot milik OJK sendiri."],
+        ["Pertimbangan biaya","CSIRT melayani lebih dari 100 organisasi, sehingga pemilihan platform dan feed perlu analisis biaya dan manfaat."],
+        ["Inventaris aset bank","CSIRT mendorong bank berbagi inventaris aset inti, yaitu jaringan, perangkat keras, dan software, agar peringatan dini bisa diarahkan ke bank yang benar-benar terdampak."],
+        ["Bentuk penyebaran","Feed API, paket informasi per jam, harian, atau mingguan, portal terbatas, email terenkripsi, dan briefing."],
+        ["Pengamanan CTI","CTI dienkripsi saat disimpan, dikirim, dan dicadangkan, dengan akses berbasis peran. Anonimisasi dapat dipakai untuk menurunkan tingkat TLP."]],[1])+
+ `<p class="src">Disusun dari bab 4 sampai 5.3. Tujuannya, CSIRT sektor menjadi sumber informasi yang dapat dipercaya bagi seluruh bank.</p>`,
 
 "IPCP — CTI Information Sharing Network":
  H("Dua fungsi utama jaringan")+
@@ -1779,18 +1899,51 @@ const DIAG={
  H("Kesadaran keamanan")+
  cards([["Kesalahan manusia","Bagian khusus membahas human error sebagai penyebab berulang, beserta prinsip kehati-hatian yang perlu ditanamkan."],
         ["Program kesadaran internal","Faktor manusia dikelola melalui human risk management, karena ditempatkan sebagai garis pertahanan pertama sekaligus kerentanan paling kritis."],
-        ["Siklus serangan siber","Studi kasus pelanggaran beserta mitigasinya dibahas melalui anatomi siklus serangan (kill chain), lalu materi ditutup dengan sistem deteksi dan respons ancaman siber."]])
+        ["Siklus serangan siber","Studi kasus pelanggaran beserta mitigasinya dibahas melalui anatomi siklus serangan (kill chain), lalu materi ditutup dengan sistem deteksi dan respons ancaman siber."]])+
+H("Protokol penanganan insiden siber TTIS-SK")+
+ `<p class="src" style="margin:-4px 0 12px">Dua lajur bekerja bersamaan: bank sebagai TTIS organisasi di bawah, dan TTIS Sektor Keuangan (BI dan OJK) di atas. Kotak bergaris putus-putus menandai langkah yang bersifat opsional.</p>`+
+ `<div class="axscroll"><div class="swl">
+  <div class="swh"></div><div class="swh">Persiapan</div><div class="swh">Deteksi, analisis, dan pemantauan</div><div class="swh">Penahanan, pembersihan, dan pemulihan</div><div class="swh">Penutupan dan pascainsiden</div>
+  <div class="swn sk">TTIS Sektor Keuangan</div>
+  <div class="swc">${["Penetapan struktur, tugas, dan kewenangan TTIS-SK","Penyusunan protokol penanganan insiden sektor keuangan","Simulasi serangan siber lingkup sektor keuangan","Daftar narahubung TTIS organisasi"].map(t=>`<div class="swb prep">${t}</div>`).join('')}</div>
+  <div class="swc">${[["1","Pengawas BI/OJK atau TTIS-SK menerima laporan insiden dari bank"],["2","Rapat koordinasi TTIS-SK"],["3","Rapat konfirmasi detail insiden dengan bank"],["4","Asesmen dan rekomendasi penanganan bila diperlukan"]].map(([n,t])=>`<div class="swb m" style="--i:${n}"><i>${n}</i>${t}</div>`).join('')}<div class="swb opt">Koordinasi dengan otoritas dan pemangku kepentingan terkait, bila dibutuhkan</div></div>
+  <div class="swc">${[["5","Rencana penanganan dan/atau pencegahan contagion effect"],["6","Rapat berkala untuk memantau perkembangan dan tindak lanjut"]].map(([n,t])=>`<div class="swb m" style="--i:${n}"><i>${n}</i>${t}</div>`).join('')}<div class="swb opt">Eskalasi ke satuan kerja terkait dan/atau TTIS Nasional, bila dibutuhkan</div><div class="swq"><b>Penanganan selesai?</b><span>Tidak: kembali ke rapat berkala</span><span>Ya: lanjut ke penutupan</span></div></div>
+  <div class="swc"><div class="swb m" style="--i:7"><i>7</i>TTIS-SK dan bank berbagi hasil penanganan dan pelajaran (lesson learned)</div><div class="swb end">Selesai</div></div>
+  <div class="swn org">TTIS Organisasi (bank)</div>
+  <div class="swc">${["Penetapan struktur, tugas, dan kewenangan TTIS organisasi","Penyusunan protokol penanganan insiden siber","Penyusunan incident playbook untuk berbagai jenis insiden","Simulasi serangan siber lingkup organisasi"].map(t=>`<div class="swb prep">${t}</div>`).join('')}</div>
+  <div class="swc"><div class="swb start">Mulai</div><div class="swb o">Deteksi dan konfirmasi terjadinya insiden</div><div class="swb o up">Lapor ke pengawas BI/OJK <small>Jika insiden terjadi di BI atau OJK sendiri, langsung ke TTIS-SK</small></div><div class="swb o">Inisiasi forensik dan analisis insiden</div></div>
+  <div class="swc"><div class="swcyc"><span>Penahanan</span><span>Pembersihan</span><span>Pemulihan</span><em>berulang sampai tuntas</em></div></div>
+  <div class="swc"><div class="swb o up">Penyusunan laporan akhir dan materi berbagi pengalaman</div></div>
+ </div></div>`+
+ `<div class="swleg">${["Koordinator","Fungsi pengawasan","Fungsi pengamanan siber","Fungsi keberlangsungan tugas","Fungsi pelindungan konsumen","Fungsi komunikasi"].map(t=>`<span>${t}</span>`).join('')}</div>`+
+ `<p class="src">Disusun ulang dari slide 33 materi "Cybersecurity &amp; IT Regulation di Bank Indonesia". Pada bagan asli, tiap langkah TTIS-SK diberi penanda warna fungsi yang terlibat (enam fungsi di atas). Laporan bank masuk lewat pengawasnya di BI atau OJK, sejalan dengan SEOJK 29 Bab IX.</p>`+
+ H("Struktur TTIS Sektor Keuangan")+
+ `<div class="org">
+  <div class="orgtop"><div class="orgb"><b>Koordinator</b><span class="u bi">DLDS</span><span class="u ojk">DIMB</span></div><div class="orgb"><b>Sekretariat</b><span class="u bi">DLDS</span><span class="u ojk">DIMB</span></div></div>
+  <div class="orgp">${[["Capability Development",[["Pengembangan","DSPK DPID DSMM DLDS","DRPD DPKP DPNP OJKI DIMB"]]],
+     ["Threat Intelligence &amp; Information Sharing",[["Monitoring, analisis, dan berbagi informasi","DSPK DSPP DSMM DLDS","DPBS DRPD DPW1 DPBP DPSI DPW2 DPKG DPEA DIMB"],["Peringatan dan tindak lanjut","DSPK DSMM","DPW1 DPBS DPBP DPW2 DPKG DRPD"]]],
+     ["Incident Response",[["Pengawasan","DSPK DSMM","DPW1 DPBS DPBP DPW2 DPKG DRPD"],["Pengamanan siber","DLDS","DPSI"],["Keberlangsungan tugas","DMR DPSP DPKL","DPDS DRPK"],["Komunikasi","DKOM","DLIK"],["Pelindungan konsumen","DUPK","DPLK DPUK"]]]]
+   .map(([t,subs])=>`<div class="orgc"><h5>${t}</h5>${subs.map(([n,b,o])=>`<div class="orgs"><b>${n}</b><div>${b.split(' ').map(u=>`<span class="u bi">${u}</span>`).join('')}${o.split(' ').map(u=>`<span class="u ojk">${u}</span>`).join('')}</div></div>`).join('')}</div>`).join('')}</div>
+  <div class="orgleg"><span class="u bi">Satuan kerja BI</span><span class="u ojk">Satuan kerja OJK</span></div>
+ </div>`+
+ `<p class="src">Disusun ulang dari slide 32. Fungsi TTIS-SK dijalankan bersama oleh BI dan OJK, dengan koordinator dan sekretariat dari DLDS (BI) dan DIMB (OJK). Komunikasi dan pelindungan konsumen termasuk fungsi resmi TTIS-SK.</p>`+
+ H("Yang dilakukan BI saat insiden terjadi")+
+ kc([["Laporan insidental","Bank menyampaikan notifikasi insiden dan laporan penanganan kepada BI."],
+     ["Asesmen dampak","BI menilai dampak insiden siber terhadap penyelenggara dan sistem pembayaran."],
+     ["Pencegahan contagion effect","Jika berdasarkan asesmen diperlukan, BI dapat menutup akses penyelenggara ke infrastruktur BI."],
+     ["Koordinasi dan eskalasi","Penanganan dikoordinasikan oleh tim siber BI–OJK. Jika dampaknya meluas ke BI, dilakukan penanganan internal BI, dan untuk skala nasional masuk ke manajemen krisis siber nasional di BSSN."]])+
+ `<p class="src">Disusun ulang dari slide 19 (proses bisnis PBI dan PADG KKS, kondisi insiden). Nilai kematangan keamanan siber penyelenggara juga menjadi pertimbangan BI dalam pemberian izin. BI mengawasi sekitar 500 penyelenggara.</p>`
 };
 
 const DOCS=[
  {k:"Bagian Pendukung",n:"Perpres 82/2022",p:"Presiden RI",j:"Pelindungan Infrastruktur Informasi Vital",
-  isi:["Pasal 4 ayat (1) huruf d menetapkan keuangan sebagai sektor Infrastruktur Informasi Vital. Ayat (3) huruf d menunjuk otoritas sektor keuangan sebagai kementerian atau lembaga yang mengampu sektor tersebut.","Pasal 7 dan 8 mengatur bahwa BSSN menyusun kerangka kerja pelindungan, sedangkan kementerian atau lembaga menyusun peta jalan sektornya.","Pasal 13 ayat (1) mengatur pelaporan paling lambat 1×24 jam dari tim organisasi ke tim sektoral dengan tembusan ke tim nasional. Jika tim sektoral belum dibentuk, ayat (3) mengarahkan laporan ke kementerian atau lembaga sektornya.","Pasal 14 ayat (2) menetapkan bahwa penanganan mencakup penanggulangan dan pemulihan, penyampaian informasi, serta diseminasi pencegahan.","Pasal 18 mengatur forum berbagi informasi, sedangkan Pasal 22 dan 23 mengatur pengukuran kematangan dan peran BSSN sebagai koordinator."],
+  isi:["Pasal 4 ayat (1) huruf d menetapkan keuangan sebagai sektor Infrastruktur Informasi Vital. Ayat (3) huruf d menunjuk otoritas sektor keuangan sebagai kementerian atau lembaga yang mengampu sektor tersebut.","Pasal 7 dan 8 mengatur bahwa BSSN menyusun kerangka kerja pelindungan, sedangkan kementerian atau lembaga menyusun peta jalan sektornya.","Pasal 13 ayat (1) mengatur pelaporan paling lambat 1×24 jam dari tim organisasi ke tim sektoral dengan tembusan ke tim nasional. Jika tim sektoral belum dibentuk, ayat (3) mengarahkan laporan ke kementerian atau lembaga sektornya.","Pasal 14 ayat (2) menetapkan bahwa penanganan mencakup penanggulangan dan pemulihan, penyampaian informasi, serta diseminasi pencegahan.","Pasal 18 mengatur forum berbagi informasi, sedangkan Pasal 22 dan 23 mengatur pengukuran kematangan dan peran BSSN sebagai koordinator.","Mengatur pula laporan hasil manajemen risiko, kesiapan, manajemen krisis siber, kerja sama luar negeri, dan koordinasi nasional oleh BSSN."],
   menggunakan:"Dasar Jalur 2 pada alur pelaporan, di luar kerangka OJK."},
  {k:"Bagian Pendukung",n:"Perban BSSN 8/2020",p:"BSSN",j:"Sistem Pengamanan Sistem Elektronik",
-  isi:["Seluruh pengamanan dilakukan melalui Sistem Manajemen Pengamanan Informasi berbasis risiko.","Membagi sistem elektronik menjadi tiga kategori, yaitu strategis, tinggi, dan rendah, melalui penilaian mandiri.","Menetapkan standar wajib tiap kategori beserta tahap persiapan, penerapan, dan sertifikasi.","Mengatur lembaga konsultan, implementor, dan sertifikasi, meliputi syarat, pendaftaran, masa berlaku, dan gugurnya pengakuan.","Memuat pembinaan dan pengawasan BSSN serta sanksi administratif bertingkat."],
+  isi:["Seluruh pengamanan dilakukan melalui Sistem Manajemen Pengamanan Informasi berbasis risiko.","Membagi sistem elektronik menjadi tiga kategori, yaitu strategis, tinggi, dan rendah, melalui penilaian mandiri.","Menetapkan standar wajib tiap kategori beserta tahap persiapan, penerapan, dan sertifikasi.","Mengatur lembaga konsultan, implementor, dan sertifikasi, meliputi syarat, pendaftaran, masa berlaku, dan gugurnya pengakuan.","Memuat pembinaan dan pengawasan BSSN serta sanksi administratif bertingkat.","Lampirannya memuat sepuluh indikator penilaian mandiri beserta cara penilaiannya untuk menentukan kategori sistem."],
   menggunakan:"Usulan acuan untuk menentukan sistem kritikal dalam matriks kategorisasi insiden, karena IPCP tidak mendefinisikan istilah tersebut."},
  {k:"Bagian Pendukung",n:"Perban BSSN 1/2024",p:"BSSN",j:"Pengelolaan Insiden Siber",
-  isi:["Menggantikan Perban BSSN 10/2020 dan menjadi aturan pelaksana Perpres 82/2022 di bidang pengelolaan insiden siber. Isi ringkasan ini mengikuti Perban 1/2024.","Menetapkan tim tanggap insiden siber dalam tiga tingkat, yaitu nasional yang dibentuk BSSN, sektoral yang dibentuk kementerian atau lembaga, dan organisasi yang dibentuk penyelenggara sistem elektronik, termasuk bank.","Mewajibkan tim sektoral dan tim organisasi mendaftarkan diri ke BSSN agar tercatat dan dapat dihubungi saat insiden terjadi.","Mengatur pelaporan insiden yang berisiko tinggi, batas waktu laporan untuk sistem yang ditetapkan sebagai Infrastruktur Informasi Vital (IIV), serta kapan penanganan diambil alih oleh tim sektoral atau tim nasional.","Mengatur langkah penanganan insiden, penyampaian informasi kepada pihak terdampak dengan kode TLP, serta kesiapan berupa rencana tanggap insiden dan rencana keberlangsungan kegiatan yang disimulasikan secara berkala."],
+  isi:["Menggantikan Perban BSSN 10/2020 dan menjadi aturan pelaksana Perpres 82/2022 di bidang pengelolaan insiden siber. Isi ringkasan ini mengikuti Perban 1/2024.","Menetapkan tim tanggap insiden siber dalam tiga tingkat, yaitu nasional yang dibentuk BSSN, sektoral yang dibentuk kementerian atau lembaga, dan organisasi yang dibentuk penyelenggara sistem elektronik, termasuk bank.","Mewajibkan tim sektoral dan tim organisasi mendaftarkan diri ke BSSN agar tercatat dan dapat dihubungi saat insiden terjadi.","Mengatur pelaporan insiden yang berisiko tinggi, batas waktu laporan untuk sistem yang ditetapkan sebagai Infrastruktur Informasi Vital (IIV), serta kapan penanganan diambil alih oleh tim sektoral atau tim nasional.","Mengatur langkah penanganan insiden, penyampaian informasi kepada pihak terdampak dengan kode TLP, serta kesiapan berupa rencana tanggap insiden dan rencana keberlangsungan kegiatan yang disimulasikan secara berkala.","Lampiran A merinci langkah penanggulangan dan pemulihan insiden, sedangkan Lampiran B mengatur pelabelan TLP."],
   menggunakan:"Dasar Jalur 2 pada alur pelaporan, struktur TTIS, dan kedudukan TTIS-SK sebagai TTIS sektor keuangan."},
  {k:"Bagian Pendukung",n:"SEOJK 29/SEOJK.03/2022",p:"OJK",j:"Ketahanan dan Keamanan Siber Bank Umum",
   isi:["Aturan pelaksana POJK 11/2022 yang mengatur ketahanan dan keamanan siber khusus untuk bank umum.","Setiap tahun bank menilai sendiri dua hal, yaitu risiko inheren dan tingkat maturitas keamanan sibernya. Keduanya digabung menjadi tingkat risiko siber bank dan dilaporkan kepada OJK.","Bank menerapkan manajemen risiko siber dan menjaga ketahanan siber melalui empat proses, yaitu identifikasi, pelindungan, deteksi, serta penanggulangan dan pemulihan.","Bank menguji keamanan sibernya secara berkala, baik melalui pencarian kerentanan dan penetration test maupun melalui simulasi skenario serangan, lalu melaporkan hasilnya kepada OJK.","Bank membentuk unit keamanan siber yang terpisah dari pengelola TI, yang juga mengoordinasikan tim tanggap insiden siber.","Bank melaporkan insiden siber kepada OJK dalam dua tahap, yaitu notifikasi awal paling lama 24 jam dan laporan insiden paling lama 5 hari kerja sejak insiden diketahui."],
@@ -1820,7 +1973,7 @@ const DOCS=[
   isi:["Ransomware berbeda dari serangan lain karena dampak operasionalnya langsung terasa dan segera diketahui, sehingga waktu untuk memitigasi sangat sempit.","Memuat empat langkah persiapan, yaitu menetapkan kebijakan risiko, melindungi aset kritis, mendeteksi sedini mungkin, serta menyiapkan respons dan pemulihan.","Kotak Basic Ransomware Tips berisi enam kelompok langkah dasar, seluruhnya dipetakan ke kode CSF 2.0.","Menekankan strategi komunikasi di luar kanal biasa jika kanal normal ikut lumpuh.","Statusnya adalah praktik baik, bukan persyaratan hukum atau regulasi."],
   menggunakan:"Isi modul ransomware playbook."},
  {k:"Bagian Rujukan",n:"Dua materi Bank Indonesia",p:"Bank Indonesia",j:"Risiko, Ketahanan, dan Regulasi Keamanan Siber",
-  isi:["Materi pertama membahas tren ancaman, profil pelaku, jenis serangan, dan studi kasus Bangladesh Bank 2016.","Materi pertama juga memuat standar ISO/IEC 27001, PCI-DSS, panduan BIS, dan pengawasan risiko siber versi IMF.","Materi pertama memetakan pengaturan nasional dan sektoral, termasuk pembagian kewenangan antara Bank Indonesia dan OJK.","Materi kedua membahas kerangka kebijakan keamanan siber BI, prinsip CIA, dan pertahanan berlapis dengan tujuh lapisan.","Materi kedua juga memuat peta ancaman, ekosistem kejahatan siber, serta ancaman berbasis AI dan kuantum."],
+  isi:["Materi pertama membahas tren ancaman, profil pelaku, jenis serangan, dan studi kasus Bangladesh Bank 2016.","Materi pertama juga memuat standar ISO/IEC 27001, PCI-DSS, panduan BIS, dan pengawasan risiko siber versi IMF.","Materi pertama memetakan pengaturan nasional dan sektoral, termasuk pembagian kewenangan antara Bank Indonesia dan OJK.","Materi kedua membahas kerangka kebijakan keamanan siber BI, prinsip CIA, dan pertahanan berlapis dengan tujuh lapisan.","Materi kedua juga memuat peta ancaman, ekosistem kejahatan siber, serta ancaman berbasis AI dan kuantum.","Materi pertama juga memuat struktur TTIS Sektor Keuangan bentukan BI dan OJK, protokol penanganan insiden siber TTIS-SK, serta langkah BI saat insiden, termasuk kemungkinan menutup akses penyelenggara ke infrastruktur BI."],
   menggunakan:"Data tren, konteks nasional, dan acuan konsep dasar."}
 ];
 let dFil='all',dSel=null;
