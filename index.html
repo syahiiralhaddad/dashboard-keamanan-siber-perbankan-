@@ -382,12 +382,19 @@ details.more[open]>summary:before{content:"−"}
 @media (prefers-reduced-motion:reduce){.cycs{animation:none}}
 /* TLP berwarna */
 .tlpl{display:flex;flex-direction:column;gap:10px}
-.tlpi{display:flex;align-items:center;gap:18px;padding:6px 0;animation:viewIn .5s var(--ease) both;animation-delay:calc(var(--i)*.07s)}
-.tlpi p{font-size:15px;color:#424245;line-height:1.5}
-.tlpp{flex:none;font-weight:600;font-size:14px;padding:13px 20px;border-radius:980px;white-space:nowrap}
+.tlpi{display:flex;align-items:center;gap:22px;background:var(--bg);border-radius:18px;padding:12px 18px 12px 12px;animation:viewIn .5s var(--ease) both;animation-delay:calc(var(--i)*.07s)}
+.tlpi p{font-size:14px;color:#424245;line-height:1.5}
+.tlpp{flex:none;width:190px;text-align:center;font-weight:700;font-size:13.5px;letter-spacing:.02em;padding:12px 10px;border-radius:980px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .tlpp.red{background:#e5261f;color:#fff}.tlpp.amber{background:#ffb000;color:#1d1d1f}
 .tlpp.green{background:#2e9e44;color:#fff}.tlpp.clear{background:#fff;color:#1d1d1f;box-shadow:inset 0 0 0 1.5px #1d1d1f}
 @media (max-width:640px){.tlpi{flex-direction:column;align-items:flex-start}.tlpp{width:auto}}
+.tlpl1{flex:none;width:210px;display:flex;flex-direction:column;gap:7px}
+.tlpl1 .tlpp{width:auto}
+.tlpl1 em{font-style:normal;font-size:12.5px;font-weight:600;color:var(--dark);text-align:center;line-height:1.35}
+.tlpd{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tlpd b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:3px}
+.tlpd p{font-size:13.5px}
+@media (max-width:760px){.tlpd{grid-template-columns:1fr}.tlpl1{width:100%}}
 /* tabel berwarna */
 .tablewrap{box-shadow:0 0 0 1px rgba(219,38,42,.18),0 14px 34px rgba(219,38,42,.06)}
 th{background:linear-gradient(180deg,#e2393d,var(--red));color:#fff;border-bottom:0;font-size:12.5px;letter-spacing:.02em}
@@ -1579,11 +1586,12 @@ const DIAG={
         ["S — Sharing","Penyebaran ulang yang diizinkan dan hal yang harus dilakukan terlebih dahulu, termasuk menentukan berbagi yang wajib dan yang sukarela."],
         ["L — Licensing","Perjanjian, lisensi, atau syarat penggunaan yang berlaku atas informasi yang dibagikan."]],[],4)+
  H("Traffic Light Protocol: semakin ke bawah, semakin bebas disebarkan")+
- `<div class="tlpl">${[["red","TLP:RED","Tidak boleh keluar dari percakapan tempat informasi itu disampaikan. Umumnya dipertukarkan secara lisan atau tatap muka."],
-   ["amber","TLP:AMBER+STRICT","Hanya boleh diteruskan ke anggota organisasi penerima sendiri, atas dasar perlu tahu."],
-   ["amber","TLP:AMBER","Boleh diteruskan ke organisasi penerima dan kliennya, atas dasar perlu tahu (Perban BSSN 1/2024 Lampiran B). IPCP memperluasnya ke organisasi lain di sektor, tetapi playbook mengikuti definisi Perban yang mengikat."],
-   ["green","TLP:GREEN","Boleh diteruskan ke rekan sejawat dan mitra di dalam komunitas, tetapi tidak melalui kanal yang dapat diakses publik."],
-   ["clear","TLP:CLEAR","Tanpa batasan penyebaran, tetap tunduk pada aturan hak cipta."]].map(([c,l,d],i)=>`<div class="tlpi" style="--i:${i}"><span class="tlpp ${c}">${l}</span><p>${d}</p></div>`).join('')}</div>`+
+ `<div class="tlpl">${[["red","TLP:RED","Tidak untuk disebarkan, terbatas pada peserta","Informasi tidak dapat ditindaklanjuti tanpa risiko besar bagi privasi, reputasi, atau operasional organisasi yang terlibat.","Tidak boleh dibagikan ke luar pertemuan atau percakapan tempat informasi disampaikan. Umumnya dipertukarkan secara lisan, tatap muka, atau melalui saluran yang sangat terbatas."],
+   ["amber","TLP:AMBER+STRICT","Terbatas pada organisasi penerima","Informasi perlu dukungan untuk ditindaklanjuti, tetapi berisiko jika dibagikan ke luar organisasi penerima.","Hanya boleh dibagikan ke anggota organisasi penerima sendiri, atas dasar perlu tahu."],
+   ["amber","TLP:AMBER","Terbatas pada organisasi peserta","Informasi perlu dukungan untuk ditindaklanjuti, tetapi berisiko jika dibagikan ke luar organisasi yang terlibat.","Menurut IPCP, boleh dibagikan ke anggota organisasi sendiri (CSIRT) dan organisasi sektor, atas dasar perlu tahu. Perban BSSN 1/2024 membatasinya pada organisasi penerima dan kliennya, dan playbook mengikuti Perban."],
+   ["green","TLP:GREEN","Terbatas pada komunitas","Informasi berguna untuk meningkatkan kesadaran di komunitas yang lebih luas.","Boleh dibagikan ke rekan dan mitra di komunitas, tetapi tidak melalui saluran publik. Tanpa ketentuan lain, tidak boleh keluar dari komunitas CSIRT atau sektor keuangan."],
+   ["clear","TLP:CLEAR","Tidak dibatasi","Risiko penyalahgunaan sangat kecil atau tidak ada, sesuai aturan rilis publik.","Boleh dibagikan tanpa batasan, tetap tunduk pada aturan hak cipta."]]
+   .map(([c,l,ar,k,cb],i)=>`<div class="tlpi" style="--i:${i}"><div class="tlpl1"><span class="tlpp ${c}">${l}</span><em>${ar}</em></div><div class="tlpd"><div><b>Kapan digunakan</b><p>${k}</p></div><div><b>Cara membagikan</b><p>${cb}</p></div></div></div>`).join('')}</div>`+
  `<p class="src">Disusun ulang dari Figure 1 (hal. 9), yang mengutip CISA. Penandaan TLP mengatur penyebaran, bukan tingkat kerahasiaan.</p>`+
  H("Standar teknis yang menyertainya")+
  cards([["STIX","Standar struktur data intelijen ancaman, agar informasi dari sumber berbeda memiliki bentuk yang sama."],
