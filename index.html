@@ -932,7 +932,7 @@ nav.top.two .nav-links>:first-child{margin-left:0}
   <div id="docDetail"></div>
   <h3 class="sub">Lima benang merah dari tiga belas bacaan</h3>
   <div id="benang"></div>
-  <div class="take"><b>Key Takeaways</b><span>Regulasi Indonesia menetapkan apa yang wajib dilaporkan, kepada siapa, dan dalam berapa lama, sedangkan dokumen IPCP dan rujukan global memberi contoh cara menjalankannya. Playbook disusun untuk menyatukan keduanya, dengan ruang lingkup bank umum dan catatan terpisah untuk lembaga jasa keuangan lain yang aturan TI-nya belum dibahas.</span></div>
+  <div class="take"><b>Key Takeaways</b><span>Kewajiban dan kerangkanya sudah tersedia, tetapi cara menjalankannya masih tersebar dan sebagian sudah tertinggal. Playbook menyatukan kewajiban lapor Indonesia dengan alur kerja IPCP yang diperbarui ke NIST terbaru, dilengkapi pembagian peran yang jelas dan persiapan sebelum insiden.</span></div>
 </section>
 
 
@@ -2235,11 +2235,11 @@ $$('#docFilter button').forEach(b=>b.onclick=()=>{
   dFil=b.dataset.f;dSel=null;renderDocs();});
 renderDocs();
 put('#benang',[
- ["Semua mengacu pada kerangka yang sama","NIST CSF 2.0 menjadi kosakata bersama. NIST SP 800-61r3 dan NIST IR 8374r1 disusun sebagai profil turunan dari kerangka tersebut. IPCP (2024) belum merujuk CSF 2.0 dan alur responsnya masih mengikuti model lama SP 800-61 Revisi 2, sehingga ketiga dokumen NIST ini menjadi dasar untuk memperbaruinya."],
- ["Kewajiban pelaporan berasal dari lebih dari satu regulasi","SEOJK 29 mengatur pelaporan ke OJK, Perpres 82 ke tim tanggap insiden sektoral dan nasional, dan UU PDP ke subjek data. Ketiganya berlaku bersamaan dengan deadline berbeda."],
- ["Pemisahan peran berulang di banyak dokumen","Organisasi menjalankan respons, CSIRT sektor menjalankan manajemen dan koordinasi. Pola ini muncul dalam dokumen IPCP dan tercermin pada susunan tim dalam Perban BSSN 10/2020, yang kini digantikan oleh Perban BSSN 1/2024."],
- ["Persiapan menentukan hasil","Ambang eskalasi, daftar kontak, templat pesan, dan latihan harus sudah ada sebelum insiden. Hal ini ditegaskan dalam Panduan Resiliensi Digital, NIST IR 8374r1, dan playbook komunikasi krisis."],
- ["Kekosongan masih ada di tingkat operasional","Indonesia sudah memiliki persyaratan kerangka kerja dan persyaratan operasional, tetapi belum memiliki pedoman operasional siap pakai untuk pertahanan dan pemulihan siber."]
+ ["Semua mengacu pada kerangka yang sama","NIST CSF 2.0 menjadi kerangka induk, sedangkan SP 800-61r3 dan IR 8374r1 merupakan turunannya. IPCP (2024) belum merujuk CSF 2.0 dan masih memakai model respons lama, sehingga perlu diperbarui."],
+ ["Satu insiden dapat memicu beberapa kewajiban lapor","Bank dapat sekaligus melapor ke OJK (24 jam dan 5 hari kerja), BSSN melalui TTIS-SK (1×24 jam untuk IIV), Lembaga PDP dan subjek data (3×24 jam), serta Bank Indonesia. Jalur yang terpicu bergantung pada jenis sistem dan data yang terdampak."],
+ ["Bank merespons, sektor mengoordinasikan","Bank menangani insidennya sendiri, sedangkan CSIRT sektor mengelola koordinasi. Pola ini sejalan dengan TTIS tiga tingkat dalam Perpres 82 dan Perban BSSN 1/2024, yang di sektor keuangan dijalankan TTIS-SK bentukan BI dan OJK."],
+ ["Persiapan menentukan hasil","Ambang eskalasi, daftar kontak, templat pesan, dan latihan perlu disiapkan sebelum insiden. Regulasi sudah mewajibkan simulasi IRP dan BCP minimal sekali dalam dua tahun serta uji DRP setiap tahun."],
+ ["Pedoman operasional masih kosong","Aturan dan kerangkanya sudah ada, tetapi belum ada pedoman siap pakai untuk pertahanan dan pemulihan siber. IPCP baru mengisi sebagian karena bersifat internal, belum dipetakan ke regulasi, dan belum memuat modul per skenario."]
 ].map(([t,d],i)=>`<div class="step" ${i===4?'style="background:var(--soft);border-color:rgba(219,38,42,.3)"':''}>
   <div class="num">${i+1}</div><div><b style="font-size:.88rem;color:var(--red)">${esc(t)}</b><p style="margin-top:3px">${esc(d)}</p></div></div>`).join(''));
 
